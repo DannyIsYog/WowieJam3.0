@@ -8,11 +8,11 @@ public class PlayerScript : MonoBehaviour
 
     private Rigidbody2D rb;        //Store a reference to the Rigidbody2D component required to use 2D Physics.
 
-    public bool pickedItem;        //Boolena if the player has an item or not
+    public bool pickedItem;        //Boolean if the player has an item or not
     
-    public GameObject blockPrefab;       //GameObject that will be used to instatiate the block
+    public GameObject blockPrefab; //GameObject that will be used to instatiate the block
 
-    public GameObject levelManager;
+    public GameObject levelManager;//Reference to the Level Manager 
 
     // Use this for initialization
     void Start()
@@ -25,8 +25,6 @@ public class PlayerScript : MonoBehaviour
 
         //var block = Instantiate(blockPrefab, new Vector3(transform.position.x + 2f, transform.position.y - 2f, 0f), Quaternion.identity);
         //block.transform.parent = gameObject.transform;
-
-        //
     }
 
     void Update()
@@ -37,6 +35,10 @@ public class PlayerScript : MonoBehaviour
             tempVect = tempVect.normalized * speed * Time.deltaTime;
             rb.transform.position += tempVect;
         }
-        levelManager.GetComponent<LevelManager>().placeBlock(0, 0, 0);
+        if(Input.GetKeyDown("space")) {
+            //TODO Call the placeBLock Function on the Level Manager
+            //levelManager.GetComponent<LevelManager>().placeBlock(0, 0, 0);
+            Debug.Log("Spawning Block");
+        }
     }
 }

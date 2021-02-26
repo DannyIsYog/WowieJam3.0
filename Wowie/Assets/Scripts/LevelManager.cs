@@ -59,7 +59,7 @@ public class LevelManager : MonoBehaviour
 
         matrix[x, y] = blocks[index];
         /*TODO: CHAMAR CENA Q METE BLOCO NO MUNDO*/
-        Instantiate(blockPrefab, new Vector3(x, y, 0f), Quaternion.identity);
+        Instantiate(null, new Vector3(x, y, 0f), Quaternion.identity);
         return true;
     }
 
