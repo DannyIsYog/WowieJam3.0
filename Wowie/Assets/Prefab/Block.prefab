@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1349060645193675721}
   - component: {fileID: 4432435018639677032}
   m_Layer: 0
-  m_Name: Block 1
+  m_Name: Block
   m_TagString: gameBlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,11 +42,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7781049067020861620}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a4351e5cfc552f48b89bc38a4950f7d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4de0fd5b15798614eb20b2407fe0cd62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  block: 4
-  xSpeedMultiplier: 1
+  blk: 0
+  blacklist: 
+  speed: 0
   isMagnetic: 0
   isAtractive: 0
   jump: 0
