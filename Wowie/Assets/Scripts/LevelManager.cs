@@ -38,7 +38,7 @@ public class LevelManager : MonoBehaviour
         
     }
 
-    bool placeBlock(int x, int y, int index) {
+    public bool placeBlock(int x, int y, int index) {
         
         //Ve se o bloco ja está colocado
         if(isInMatrix(blocks[index]))
@@ -59,6 +59,7 @@ public class LevelManager : MonoBehaviour
 
         matrix[x, y] = blocks[index];
         /*TODO: CHAMAR CENA Q METE BLOCO NO MUNDO*/
+        Instantiate(blockPrefab, new Vector3(x, y, 0f), Quaternion.identity);
         return true;
     }
 
