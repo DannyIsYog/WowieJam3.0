@@ -6,29 +6,42 @@ using UnityEngine;
 //ONLY supports conditions for 1D placement
 public class LevelManager : MonoBehaviour
 {
-    public Block[] blocks;
+    public List<Block> blocks;
     //define level size
+    public int level = 2;
     public int x = 4;
     public int y = 1;
     //end define level size
     public Block[,] matrix;
 
+    private int nextBlock = 0;
+
+    /*FIXME: REMOVE FROM PRODUCTION*/
+    [InspectorButton("OnButtonClicked")]
+    public bool AddBlock;
+
+    private void OnButtonClicked() {
+        Debug.Log("Clicked!");
+        placeBlock(nextBlock, 0,nextBlock);
+        nextBlock++;
+    }
+
+
     // Start is called before the first frame update
     void Start(){
-        
-        GameObject[] tmp = GameObject.FindGameObjectsWithTag("gameBlock");
-        blocks = new Block[tmp.Length];
-        for(int i = 0; i < tmp.Length; i++)
-            blocks[i] = getBlock(tmp[i]);
-        
+        blocks = LevelInport.levels[level];
+        //GameObject[] tmp = GameObject.FindGameObjectsWithTag("gameBlock");
+        //blocks = new Block[tmp.Length];
+        //for(int i = 0; i < tmp.Length; i++)
+        //    blocks[i] = getBlock(tmp[i]);
         
         matrix = new Block[x,y];
         for(int i = 0; i < x; i++)
             for(int k = 0; k < y; k++)
-                matrix[x,y] = null;
+                matrix[i,k] = null;
         
-        /*for(int i = 0; i < blocks.Length; i++) {
-            Debug.Log(blocks[i]);
+        /*foreach(Block blk in blocks) {
+            Debug.Log(blk.blk);
         }*/
     }
 
@@ -71,7 +84,7 @@ public class LevelManager : MonoBehaviour
     bool isInMatrix(Block obj) {
         for(int i = 0; i < x; i++)
             for(int k = 0; k < y; k++)
-                if(matrix[x, y] == obj)
+                if(matrix[i, k] == obj)
                     return true;
         return false;
     }
@@ -79,10 +92,9 @@ public class LevelManager : MonoBehaviour
     /*1D ONLY*/
     bool checkBlacklist(int x, int y, Block blk) {
         if(matrix[x - 1, y] != null)
-            if(checkIncompatibility(blk, matrix[x - 1, y]))
-                return false;
+            return isIncompatibile(blk, matrix[x - 1, y]);
         /*if(matrix[x, y - 1] != null)
-            if(checkIncompatibility(blk, matrix[x, y - 1]))
+            if(isIncompatibile(blk, matrix[x, y - 1]))
                 return false;*/
         
         return false;
@@ -93,12 +105,12 @@ public class LevelManager : MonoBehaviour
      * Returns true if incompatible
      * TODO: MAGNETS
      */
-    bool checkIncompatibility(Block a, Block b, bool rec=true) {
+    bool isIncompatibile(Block a, Block b, bool rec=true) {
         for(int i = 0; i < a.blacklist.Length; i++)
             if(a.blacklist[i] == b.blk)
                 return true;
         if(rec)
-            return checkIncompatibility(b, a, false);
+            return isIncompatibile(b, a, false);
         return false;
     }
 }
