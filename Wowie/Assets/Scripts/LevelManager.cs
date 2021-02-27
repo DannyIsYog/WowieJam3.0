@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour
 {
     public List<Block> blocks;
     //define level size
-    public int level = 2;
+    public int level = 3;
     public int x = 4;
     public int y = 1;
     //end define level size
@@ -34,12 +34,14 @@ public class LevelManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start(){
+        Debug.Log(LevelInport.levels);
         blocks = LevelInport.levels[level];
+        Debug.Log(blocks);
         //GameObject[] tmp = GameObject.FindGameObjectsWithTag("gameBlock");
         //blocks = new Block[tmp.Length];
         //for(int i = 0; i < tmp.Length; i++)
         //    blocks[i] = getBlock(tmp[i]);
-        
+
         matrix = new Block[x,y];
         for(int i = 0; i < x; i++)
             for(int k = 0; k < y; k++)
@@ -60,22 +62,35 @@ public class LevelManager : MonoBehaviour
     }
 
     public bool placeBlock(int x, int y, int index) {
-        
+
+        Debug.Log(blocks);
+        Debug.Log(index);
+        Debug.Log(blocks[index]);
+        Debug.Log(blocks[index].blk.ToString());
+
         //Ve se o bloco ja está colocado
         if(isInMatrix(blocks[index]))
             return false;
+
+        Debug.Log(1);
 
         //ve se o local onde quer colocar está vazio
         if(matrix[x, y] != null)
             return false;
 
+        Debug.Log(1);
+
         //verifica se estiver na primeira posiçao se está na primeira linha
         if(x == 0 && y != 0)
             return false;
 
+        Debug.Log(1);
+
         //verifica se o bloco está dentro da matrix
         if(!(x <= this.x && x >= 0))
             return false;
+
+        Debug.Log(1);
 
         if(x == 0) {
             if(isIncompatibile(matrix[x, y], new Block(Block.BlockType.Useless)))
@@ -86,6 +101,8 @@ public class LevelManager : MonoBehaviour
             if(isIncompatibile(matrix[x, y], matrix[x - 1, y]))
                 return false;
         }
+
+        Debug.Log(1);
 
         matrix[x, y] = blocks[index];
 

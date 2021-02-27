@@ -688,8 +688,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e036b181097eb8b4a8080ffc7cd7e4c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
-  x: 4
+  level: 3
+  x: 50
   y: 1
   ravina: {fileID: 0}
   ravinaBlockSpawn: {fileID: 0}

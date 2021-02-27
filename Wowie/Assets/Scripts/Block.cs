@@ -89,12 +89,12 @@ public class Block {
 						break;
 					case MagnetOrientation.NegNeu:
 						this.ori = MagnetOrientation.NegNeu;
-						FileData = File.ReadAllBytes("Assets/Textures/iman_neo.png");
+						FileData = File.ReadAllBytes("Assets/Textures/iman_neg.png");
 						multi = -1;
 						break;
 					case MagnetOrientation.NeuNeg:
 						this.ori = MagnetOrientation.NeuNeg;
-						FileData = File.ReadAllBytes("Assets/Textures/iman_neo.png");
+						FileData = File.ReadAllBytes("Assets/Textures/iman_neg.png");
 						this.blacklist.Clear();
 						this.blacklist.Add(MagnetOrientation.NeuNeu);
 						this.blacklist.Add(MagnetOrientation.NegNeu);
