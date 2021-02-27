@@ -14,16 +14,22 @@ public class PlayerScript : MonoBehaviour
 
     public LevelManager levelManager;//Reference to the Level Manager 
 
+    private Animator anim;
+
     // Use this for initialization
     void Start()
     {
         //Get and store a reference to the Rigidbody2D component so that we can access it.
         rb = GetComponent<Rigidbody2D> ();
 
+        anim = GetComponent<Animator>();
+
         //levelManager LevelManger = GameObject.Find("LevelManager").GetComponent<LevelManager>();
 
         //When the game starts there's no item on the player
         pickedItem = false;
+        anim.SetBool("moving", false);
+        anim.SetInteger("Character", 0);
 
         //var block = Instantiate(blockPrefab, new Vector3(transform.position.x + 2f, transform.position.y - 2f, 0f), Quaternion.identity);
         //block.transform.parent = gameObject.transform;
@@ -33,6 +39,7 @@ public class PlayerScript : MonoBehaviour
     {
         if(pickedItem) {
             //Makes the player move to the right
+            anim.SetBool("moving", true);
             Vector3 tempVect = new Vector3(1.0f, 0f, 0f);
             tempVect = tempVect.normalized * speed * Time.deltaTime;
             rb.transform.position += tempVect;
