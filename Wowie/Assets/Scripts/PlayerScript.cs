@@ -14,16 +14,23 @@ public class PlayerScript : MonoBehaviour
 
     public LevelManager levelManager;//Reference to the Level Manager 
 
+    private Animator anim;
+
     // Use this for initialization
     void Start()
     {
         //Get and store a reference to the Rigidbody2D component so that we can access it.
         rb = GetComponent<Rigidbody2D> ();
 
+        levelManager = GameObject.Find("LevelManager").GetComponent(typeof(LevelManager)) as LevelManager;
+        anim = GetComponent<Animator>();
+
         //levelManager LevelManger = GameObject.Find("LevelManager").GetComponent<LevelManager>();
 
         //When the game starts there's no item on the player
         pickedItem = false;
+        anim.SetBool("moving", false);
+        anim.SetInteger("Character", 0);
 
         //var block = Instantiate(blockPrefab, new Vector3(transform.position.x + 2f, transform.position.y - 2f, 0f), Quaternion.identity);
         //block.transform.parent = gameObject.transform;
@@ -33,6 +40,7 @@ public class PlayerScript : MonoBehaviour
     {
         if(pickedItem) {
             //Makes the player move to the right
+            anim.SetBool("moving", true);
             Vector3 tempVect = new Vector3(1.0f, 0f, 0f);
             tempVect = tempVect.normalized * speed * Time.deltaTime;
             rb.transform.position += tempVect;
@@ -48,6 +56,10 @@ public class PlayerScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {        
         //Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
-        levelManager.setRavina(col.gameObject);
+        //levelManager.setRavina(col.gameObject);
+        if(col.CompareTag("kill")) {
+            Destroy(gameObject, 3);
+        }
+        levelManager.colission(col.gameObject);
     }
 }
