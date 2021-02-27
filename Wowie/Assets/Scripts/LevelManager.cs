@@ -49,6 +49,13 @@ public class LevelManager : MonoBehaviour
         
     }
 
+    public bool removeBlock(int x, int y) {
+        if(matrix[x, y] == null)
+            return false;
+
+        return false;
+    }
+
     public bool placeBlock(int x, int y, int index) {
         
         //Ve se o bloco ja está colocado
@@ -63,10 +70,19 @@ public class LevelManager : MonoBehaviour
         if(x == 0 && y != 0)
             return false;
 
-        //verifica se o bloco n está solto
-        if(!(x <= this.x && y <= this.y && ((x > 0 && matrix[x - 1, y] != null) || (y > 0 && matrix[x, y - 1] != null))))
-            if(x != 0 && checkBlacklist(x, y, blocks[index]))
+        //verifica se o bloco está dentro da matrix
+        if(!(x <= this.x && x >= 0))
+            return false;
+
+        if(x == 0) {
+            if(isIncompatibile(matrix[x, y], new Block(Block.BlockType.Useless)))
                 return false;
+        } else {
+            if(matrix[x - 1, y] == null)
+                return false;
+            if(isIncompatibile(matrix[x, y], matrix[x - 1, y]))
+                return false;
+        }
 
         matrix[x, y] = blocks[index];
 
@@ -117,28 +133,18 @@ public class LevelManager : MonoBehaviour
         return false;
     }
 
-    /*1Dimension ONLY*/
-    bool checkBlacklist(int x, int y, Block blk) {
-        if(matrix[x - 1, y] != null)
-            return isIncompatibile(blk, matrix[x - 1, y]);
-        /*if(matrix[x, y - 1] != null)
-            if(isIncompatibile(blk, matrix[x, y - 1]))
-                return false;*/
-        
-        return false;
-    }
 
     /*
      * Checks if blocks can be places next to eachother
      * Returns true if incompatible
      * TODO: MAGNETS
      */
-    bool isIncompatibile(Block a, Block b, bool rec=true) {
-        for(int i = 0; i < a.blacklist.Length; i++)
-            if(a.blacklist[i] == b.blk)
+    bool isIncompatibile(Block a, Block b) {
+        //VERIFICA SE O BLOCO A ESTA NA BLACKLIST DE B
+        foreach(Block.MagnetOrientation ori in b.blacklist) {
+            if(ori == b.ori)
                 return true;
-        if(rec)
-            return isIncompatibile(b, a, false);
+        }
         return false;
     }
 }
