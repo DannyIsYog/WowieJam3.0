@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 //ONLY supports conditions for 1D placement
@@ -12,20 +13,29 @@ public class LevelManager : MonoBehaviour
     public int x = 4;
     public int y = 1;
     //end define level size
+
+    /* Block Stuff */
     public Block[,] matrix;
     public GameObject[,] matrixInstanced;
 
+    public Block dummy;
+
+    public int nextBlock = 0;
+
+    /*Ravina Stuff */
     public GameObject ravina;
     public GameObject ravinaBlockSpawn;
 
     public GameObject ravinaPlayerSpawn;
 
-    public int nextBlock = 0;
+    /* Prefabs */
+    public GameObject PlayerPrefab;
 
-    public Block dummy;
+    /* UI */
 
     public GameObject PlayerPrefab;
     public GameObject BlockPrefab;
+    public List<GameObject> button_list = new List<GameObject>();
 
     /*FIXME: REMOVE FROM PRODUCTION*/
     [InspectorButton("OnButtonClicked")]
@@ -36,7 +46,6 @@ public class LevelManager : MonoBehaviour
 
     private void OnButtonClicked() {
         placeBlock(nextBlock, 0,nextBlock);
-        nextBlock++;
     }
     private void OnButtonClicked2() {
         removeBlock();
@@ -55,13 +64,18 @@ public class LevelManager : MonoBehaviour
 
         matrix = new Block[x,y];
         matrixInstanced = new GameObject[x, y];
-        for(int i = 0; i < x; i++)
+        for(int i = 0; i < x; i++) {
             for(int k = 0; k < y; k++) {
                 matrixInstanced[i, k] = null;
                 matrix[i, k] = null;
             }
+        }
         dummy = new Block(Block.BlockType.Useless);
-        playerSpawn();
+        Debug.Log(1);
+        //playerSpawn();
+        Debug.Log(2);
+        setInventory();
+        Debug.Log(3);
     }
 
     // Update is called once per frame
@@ -70,6 +84,8 @@ public class LevelManager : MonoBehaviour
         
     }
 
+
+    /* Blocks Functions */
     public void removeBlock() {
         for(int i = 0; i < this.x; i++) {
             if(matrix[i, 0] == null)
@@ -81,11 +97,6 @@ public class LevelManager : MonoBehaviour
     }
 
     public bool placeBlock(int x, int y, int index) {
-
-        /*Debug.Log(blocks);
-        Debug.Log(index);
-        Debug.Log(blocks[index]);
-        Debug.Log(blocks[index].blk.ToString());*/
 
         //Ve se o bloco ja está colocado
         if(isInMatrix(blocks[index]))
@@ -141,7 +152,7 @@ public class LevelManager : MonoBehaviour
         }*/
 
         matrixInstanced[x, y] = blockToSpawn;
-
+        nextBlock++;
         return true;
     }
 
@@ -173,6 +184,8 @@ public class LevelManager : MonoBehaviour
         return false;
     }
 
+
+    /* Ravina Functions */
     public void setRavina(GameObject obj) {
         ravina = obj;
         ravinaBlockSpawn = obj.transform.Find("Platform").gameObject;
@@ -180,8 +193,9 @@ public class LevelManager : MonoBehaviour
         //todo: ao chegar a ravina passar de nivel
     }
 
+    /* Player Functions */
     public void playerSpawn() {
-        Instantiate(PlayerPrefab, ravinaPlayerSpawn.transform);
+        Instantiate(PlayerPrefab, ravinaPlayerSpawn.transform, false); 
     }
 
     public void colission(GameObject obj) {
@@ -193,5 +207,15 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    /* UI Inventory Functions */
+
+    public void setInventory() {
+        int i = 0;
+        Debug.Log(1);
+        foreach(Block blk in blocks) {
+            button_list[i].GetComponent<Image>().sprite = blk.sprite;
+            i++;
+        }
+    }
 
 }

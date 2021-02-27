@@ -61,7 +61,7 @@ public class PauseMenu : MonoBehaviour
         clickSound.Play();
         Time.timeScale = 1f;
         GameIsPaused = false;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Main Menu");
     }
 
     public void ChangeMusicVolume()

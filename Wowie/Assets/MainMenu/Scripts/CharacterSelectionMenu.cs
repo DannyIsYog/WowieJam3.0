@@ -8,6 +8,7 @@ public class CharacterSelectionMenu : MonoBehaviour
 {
     [SerializeField] private AudioSource clickSound;
     private static readonly string SoundEffectsPref = "SoundEffectsPref";
+    private GameObject music;
 
     public GameObject[] characters;
     public int selectedCharacter = 0;
@@ -15,6 +16,7 @@ public class CharacterSelectionMenu : MonoBehaviour
     void Start()
     {
         clickSound.volume = PlayerPrefs.GetFloat(SoundEffectsPref);
+        music = GameObject.FindGameObjectWithTag("MainMenuMusic");
     }
 
     // Update is called once per frame
@@ -47,6 +49,7 @@ public class CharacterSelectionMenu : MonoBehaviour
     {
         clickSound.Play();
         PlayerPrefs.SetInt("selectedCharater", selectedCharacter);
-        //SceneManager.LoadScene("")
+        Destroy(music);
+        SceneManager.LoadScene("Fábio");
     }
 }
