@@ -22,15 +22,11 @@ public class LevelInport{
         level2.Add(new Block(Block.BlockType.Jump));
         levels.Add(level2);
 
-
-
-
-
         List<Block> level3 = new List<Block>();
-        level3.Add(new Block(Block.BlockType.Magnet, Block.MagnetOrientation.NeuNeg));
+        level3.Add(new Block(Block.BlockType.Magnet, Block.MagnetOrientation.NeuPos));
         level3.Add(new Block(Block.BlockType.Magnet, Block.MagnetOrientation.NegPos));
-        level3.Add(new Block(Block.BlockType.Magnet, Block.MagnetOrientation.PosNeg));
         level3.Add(new Block(Block.BlockType.Magnet, Block.MagnetOrientation.NegNeu));
+        level3.Add(new Block(Block.BlockType.Magnet, Block.MagnetOrientation.NeuPos));
         level3.Add(new Block(Block.BlockType.Useless));
         levels.Add(level3);
     }       

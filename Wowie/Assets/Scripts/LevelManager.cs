@@ -19,7 +19,9 @@ public class LevelManager : MonoBehaviour
 
     public GameObject ravinaPlayerSpawn;
 
-    private int nextBlock = 0;
+    public int nextBlock = 0;
+
+    public Block dummy;
 
     /*FIXME: REMOVE FROM PRODUCTION*/
     [InspectorButton("OnButtonClicked")]
@@ -34,9 +36,7 @@ public class LevelManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start(){
-        Debug.Log(LevelInport.levels);
         blocks = LevelInport.levels[level];
-        Debug.Log(blocks);
         //GameObject[] tmp = GameObject.FindGameObjectsWithTag("gameBlock");
         //blocks = new Block[tmp.Length];
         //for(int i = 0; i < tmp.Length; i++)
@@ -46,6 +46,7 @@ public class LevelManager : MonoBehaviour
         for(int i = 0; i < x; i++)
             for(int k = 0; k < y; k++)
                 matrix[i,k] = null;
+        dummy = new Block(Block.BlockType.Useless);
     }
 
     // Update is called once per frame
@@ -63,46 +64,50 @@ public class LevelManager : MonoBehaviour
 
     public bool placeBlock(int x, int y, int index) {
 
-        Debug.Log(blocks);
+        /*Debug.Log(blocks);
         Debug.Log(index);
         Debug.Log(blocks[index]);
-        Debug.Log(blocks[index].blk.ToString());
+        Debug.Log(blocks[index].blk.ToString());*/
 
         //Ve se o bloco ja está colocado
         if(isInMatrix(blocks[index]))
             return false;
 
-        Debug.Log(1);
+       // Debug.Log(1);
 
         //ve se o local onde quer colocar está vazio
         if(matrix[x, y] != null)
             return false;
 
-        Debug.Log(1);
+       // Debug.Log(1);
 
         //verifica se estiver na primeira posiçao se está na primeira linha
         if(x == 0 && y != 0)
             return false;
 
-        Debug.Log(1);
+        //Debug.Log(1);
 
         //verifica se o bloco está dentro da matrix
         if(!(x <= this.x && x >= 0))
             return false;
 
-        Debug.Log(1);
-
+        //Debug.Log(1);
         if(x == 0) {
-            if(isIncompatibile(matrix[x, y], new Block(Block.BlockType.Useless)))
+            if(isIncompatibile(blocks[index], dummy)) {
+                Debug.Log(1);
                 return false;
+            }
         } else {
-            if(matrix[x - 1, y] == null)
+            if(matrix[x - 1, y] == null) {
+                Debug.Log(2);
                 return false;
-            if(isIncompatibile(matrix[x, y], matrix[x - 1, y]))
+            }
+            if(isIncompatibile(blocks[index], matrix[x - 1, y])) {
+                Debug.Log(3);
                 return false;
+            }
         }
-
-        Debug.Log(1);
+        Debug.Log(4);
 
         matrix[x, y] = blocks[index];
 
@@ -162,8 +167,9 @@ public class LevelManager : MonoBehaviour
     bool isIncompatibile(Block a, Block b) {
         //VERIFICA SE O BLOCO A ESTA NA BLACKLIST DE B
         foreach(Block.MagnetOrientation ori in b.blacklist) {
-            if(ori == b.ori)
+            if(ori == a.ori) {
                 return true;
+            }
         }
         return false;
     }

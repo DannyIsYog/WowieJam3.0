@@ -39,8 +39,8 @@ public class Block {
 		int multi = 1;
 
 		this.blacklist.Add(MagnetOrientation.NegPos);
-		this.blacklist.Add(MagnetOrientation.NeuPos);
-		this.blacklist.Add(MagnetOrientation.NeuNeg);
+		this.blacklist.Add(MagnetOrientation.NegNeu);
+		this.blacklist.Add(MagnetOrientation.PosNeu);
 		this.blacklist.Add(MagnetOrientation.PosNeg);
 
 		switch(blk) {
@@ -59,32 +59,32 @@ public class Block {
 						FileData = File.ReadAllBytes("Assets/Textures/iman_posneg.png");
 						this.blacklist.Clear();
 						this.blacklist.Add(MagnetOrientation.NeuNeu);
-						this.blacklist.Add(MagnetOrientation.PosNeu);
+						this.blacklist.Add(MagnetOrientation.NegNeu);
 						this.blacklist.Add(MagnetOrientation.NeuNeg);
-						this.blacklist.Add(MagnetOrientation.PosNeg);
+						this.blacklist.Add(MagnetOrientation.NegPos);
 						break;
 					case MagnetOrientation.NegPos:
 						this.ori = MagnetOrientation.NegPos;
 						FileData = File.ReadAllBytes("Assets/Textures/iman_posneg.png");
 						this.blacklist.Clear();
 						this.blacklist.Add(MagnetOrientation.NeuNeu);
-						this.blacklist.Add(MagnetOrientation.NegNeu);
+						this.blacklist.Add(MagnetOrientation.PosNeg);
 						this.blacklist.Add(MagnetOrientation.NeuNeg);
-						this.blacklist.Add(MagnetOrientation.NegPos);
+						this.blacklist.Add(MagnetOrientation.PosNeu);
 						multi = -1;
 						break;
 					case MagnetOrientation.PosNeu:
 						this.ori = MagnetOrientation.PosNeu;
 						FileData = File.ReadAllBytes("Assets/Textures/iman_pos.png");
-						this.blacklist.Clear();
-						this.blacklist.Add(MagnetOrientation.NeuNeu);
-						this.blacklist.Add(MagnetOrientation.PosNeu);
-						this.blacklist.Add(MagnetOrientation.NeuNeg);
-						this.blacklist.Add(MagnetOrientation.PosNeg);
 						break;
 					case MagnetOrientation.NeuPos:
 						this.ori = MagnetOrientation.NeuPos;
 						FileData = File.ReadAllBytes("Assets/Textures/iman_pos.png");
+						this.blacklist.Clear();
+						this.blacklist.Add(MagnetOrientation.NeuNeu);
+						this.blacklist.Add(MagnetOrientation.PosNeg);
+						this.blacklist.Add(MagnetOrientation.NeuNeg);
+						this.blacklist.Add(MagnetOrientation.PosNeu);
 						multi = -1;
 						break;
 					case MagnetOrientation.NegNeu:
@@ -107,7 +107,6 @@ public class Block {
 						break;
 				}
 				isAtractive = true;
-				FileData = File.ReadAllBytes("Assets/Textures/dirt.png");
 				break;
 			case BlockType.Jump:
 				jump = true;
