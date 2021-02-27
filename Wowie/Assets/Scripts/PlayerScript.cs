@@ -12,13 +12,15 @@ public class PlayerScript : MonoBehaviour
     
     public GameObject blockPrefab; //GameObject that will be used to instatiate the block
 
-    public GameObject levelManager;//Reference to the Level Manager 
+    public LevelManager levelManager;//Reference to the Level Manager 
 
     // Use this for initialization
     void Start()
     {
         //Get and store a reference to the Rigidbody2D component so that we can access it.
         rb = GetComponent<Rigidbody2D> ();
+
+        //levelManager LevelManger = GameObject.Find("LevelManager").GetComponent<LevelManager>();
 
         //When the game starts there's no item on the player
         pickedItem = false;
@@ -44,7 +46,8 @@ public class PlayerScript : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D col)
-    {
-        Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
+    {        
+        //Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
+        levelManager.setRavina(col.gameObject);
     }
 }

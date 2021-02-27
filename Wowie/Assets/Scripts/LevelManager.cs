@@ -15,6 +15,9 @@ public class LevelManager : MonoBehaviour
     public Block[,] matrix;
 
     public GameObject ravina;
+    public GameObject ravinaBlockSpawn;
+
+    public GameObject ravinaPlayerSpawn;
 
     private int nextBlock = 0;
 
@@ -88,7 +91,7 @@ public class LevelManager : MonoBehaviour
 
 
         GameObject blockToSpawn = new GameObject();
-        blockToSpawn.transform.position = new Vector3(ravina.transform.position.x + ravina.transform.localScale.x + nextBlock * 4 + blockToSpawn.transform.localScale.x, y, 0f);
+        blockToSpawn.transform.position = new Vector3(ravinaBlockSpawn.transform.position.x + ravinaBlockSpawn.transform.localScale.x + nextBlock * 4 + blockToSpawn.transform.localScale.x, y, 0f);
         blockToSpawn.name = blocks[index].blk.ToString();
         blockToSpawn.AddComponent<BlockManager>();
         blockToSpawn.GetComponent<BlockManager>().blk = blocks[index];
@@ -140,5 +143,10 @@ public class LevelManager : MonoBehaviour
         if(rec)
             return isIncompatibile(b, a, false);
         return false;
+    }
+
+    public void setRavina(GameObject obj) {
+        ravina = obj;
+        ravinaBlockSpawn = obj.transform.Find("PlatformTest").gameObject;
     }
 }

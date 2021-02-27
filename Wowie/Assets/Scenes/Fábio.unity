@@ -691,7 +691,9 @@ MonoBehaviour:
   level: 1
   x: 4
   y: 1
-  ravina: {fileID: 1327321122}
+  ravina: {fileID: 0}
+  ravinaBlockSpawn: {fileID: 0}
+  ravinaPlayerSpawn: {fileID: 0}
   AddBlock: 0
 --- !u!4 &353128852
 Transform:
@@ -1024,6 +1026,36 @@ Transform:
   m_Father: {fileID: 505530646}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &734120433
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 734120434}
+  m_Layer: 0
+  m_Name: PlayerSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &734120434
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734120433}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2057295668}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &898699583
 GameObject:
   m_ObjectHideFlags: 0
@@ -1471,11 +1503,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1314085230}
   m_CullTransparentMesh: 0
---- !u!1 &1327321122 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5753641135450761564, guid: 73faa2f7526f80d4289ec3529ad6b28d, type: 3}
-  m_PrefabInstance: {fileID: 5753641134257830270}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1420203413
 GameObject:
   m_ObjectHideFlags: 0
@@ -1861,7 +1888,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9096254277413707440, guid: b36cbdb07ec301f468ecf6c8bd49278a, type: 3}
       propertyPath: m_Mass
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9096254277413707441, guid: b36cbdb07ec301f468ecf6c8bd49278a, type: 3}
       propertyPath: block
@@ -1878,7 +1905,7 @@ PrefabInstance:
     - target: {fileID: 9096254277413707441, guid: b36cbdb07ec301f468ecf6c8bd49278a, type: 3}
       propertyPath: levelManager
       value: 
-      objectReference: {fileID: 353128850}
+      objectReference: {fileID: 353128851}
     - target: {fileID: 9096254277413707446, guid: b36cbdb07ec301f468ecf6c8bd49278a, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2511,6 +2538,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1972594479}
   m_CullTransparentMesh: 0
+--- !u!4 &2057295668 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5753641134297942018, guid: 73faa2f7526f80d4289ec3529ad6b28d, type: 3}
+  m_PrefabInstance: {fileID: 5753641134257830270}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2103370823
 GameObject:
   m_ObjectHideFlags: 0
