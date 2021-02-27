@@ -30,6 +30,7 @@ public class LevelInport{
         level3.Add(new Block(Block.BlockType.Magnet, Block.MagnetOrientation.NegPos));
         level3.Add(new Block(Block.BlockType.Magnet, Block.MagnetOrientation.NegNeu));
         level3.Add(new Block(Block.BlockType.Useless));
+        level3.Add(new Block(Block.BlockType.Jump));
         levels.Add(level3);
     }       
 }

@@ -33,6 +33,7 @@ public class LevelManager : MonoBehaviour
 
     /* UI */
 
+    public GameObject BlockPrefab;
     public List<GameObject> button_list = new List<GameObject>();
 
     public Canvas canvas;
@@ -130,15 +131,16 @@ public class LevelManager : MonoBehaviour
         }
 
         matrix[x, y] = blocks[index];
-        GameObject blockToSpawn = new GameObject();
+
+        GameObject blockToSpawn = Instantiate(BlockPrefab, new Vector3(0, 0, 0), new Quaternion());
         blockToSpawn.transform.position = new Vector3(ravinaBlockSpawn.transform.position.x + ravinaBlockSpawn.transform.localScale.x + nextBlock * 4 + blockToSpawn.transform.localScale.x, y, 0f);
-        blockToSpawn.name = blocks[index].blk.ToString();
-        blockToSpawn.AddComponent<BlockManager>();
+        blockToSpawn.name = blocks[index].blk.ToString() + nextBlock.ToString();
         blockToSpawn.GetComponent<BlockManager>().blk = blocks[index];
-        blockToSpawn.AddComponent<SpriteRenderer>();
         blockToSpawn.GetComponent<SpriteRenderer>().sprite = blocks[index].sprite;
         blockToSpawn.GetComponent<SpriteRenderer>().flipX = blocks[index].xFlip;
-        blockToSpawn.AddComponent<BoxCollider2D>();
+        /*if(blocks[index].jump) {
+            Animator anime = blockToSpawn.GetComponent<Animator>();            
+        }*/
 
         matrixInstanced[x, y] = blockToSpawn;
         nextBlock++;
