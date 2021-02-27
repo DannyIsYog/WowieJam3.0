@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1940263919857460673}
   - component: {fileID: 3655866787102017377}
   - component: {fileID: 4451185396436391571}
+  - component: {fileID: 6767175722240016295}
   m_Layer: 0
   m_Name: Block 1
   m_TagString: gameBlock
@@ -112,7 +113,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5518537978671051549}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 2a1e43e20822097468f9c29d9d5d0da2, type: 2}
   m_CullingMode: 0
@@ -149,3 +150,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.78, y: 3.78}
   m_EdgeRadius: 0
+--- !u!114 &6767175722240016295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5518537978671051549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea10d6f91353184fbd990454f965841, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

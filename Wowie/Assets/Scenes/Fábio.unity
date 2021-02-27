@@ -933,7 +933,8 @@ MonoBehaviour:
   ravina: {fileID: 0}
   ravinaBlockSpawn: {fileID: 0}
   ravinaPlayerSpawn: {fileID: 0}
-  PlayerPrefab: {fileID: 5950378889814011749, guid: b36cbdb07ec301f468ecf6c8bd49278a, type: 3}
+  PlayerPrefab: {fileID: 3183239326472611634, guid: b36cbdb07ec301f468ecf6c8bd49278a, type: 3}
+  BlockPrefab: {fileID: 5518537978671051549, guid: 2ec263e14e47b824c9a792f8127c8f10, type: 3}
   button_list:
   - {fileID: 1028620679}
   - {fileID: 903034039}
@@ -1119,7 +1120,7 @@ Transform:
   m_Children:
   - {fileID: 702255819}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &530471864
 GameObject:
