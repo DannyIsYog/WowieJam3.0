@@ -24,7 +24,13 @@ public class MainMenuButtons : MonoBehaviour
     public void GoToCredits()
     {
         clickSoundEffect.Play();
-        //SceneManager.LoadScene("Credits");
+        SceneManager.LoadScene("Credits");
+    }
+
+    public void GoToTutorial()
+    {
+        clickSoundEffect.Play();
+        SceneManager.LoadScene("Tutorial");
     }
 
     public void QuitGame()
