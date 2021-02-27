@@ -35,6 +35,8 @@ public class LevelManager : MonoBehaviour
 
     public List<GameObject> button_list = new List<GameObject>();
 
+    public Canvas canvas;
+
     /*FIXME: REMOVE FROM PRODUCTION*/
     [InspectorButton("OnButtonClicked")]
     public bool AddBlock;
@@ -201,8 +203,15 @@ public class LevelManager : MonoBehaviour
         Debug.Log(1);
         foreach(Block blk in blocks) {
             button_list[i].GetComponent<Image>().sprite = blk.sprite;
+            button_list[i].GetComponent<ButtonProps>().block = blk;
+            button_list[i].SetActive(true);
             i++;
         }
+        canvas.gameObject.SetActive(true);
+    }
+
+    public void selectBlock(Block block) {
+        Debug.Log(block);
     }
 
 }
