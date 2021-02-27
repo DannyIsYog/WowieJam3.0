@@ -31,26 +31,32 @@ public class Block {
 		this.blk = blk;
 		
 		//FIXME:
-		byte[] FileData = File.ReadAllBytes("Assets/Textures/dirt.png");
+		byte[] FileData;
 		
 		
 		switch(blk) {
 			case BlockType.SpeedUp:
 				speed = 1.2;
+				FileData = File.ReadAllBytes("Assets/Textures/speedup.png");
 				break;
 			case BlockType.SpeedDown:
 				speed = 0.8;
+				FileData = File.ReadAllBytes("Assets/Textures/dirt.png");
 				break;
 			case BlockType.Magnet:
 				isAtractive = true;
+				FileData = File.ReadAllBytes("Assets/Textures/dirt.png");
 				break;
 			case BlockType.Jump:
 				jump = true;
+				FileData = File.ReadAllBytes("Assets/Textures/dirt.png");
 				break;
 			case BlockType.Useless:
+				FileData = File.ReadAllBytes("Assets/Textures/basic.png");
 				break;
 			default:
 				Debug.LogError("You should NEVER read this string");
+				FileData = File.ReadAllBytes("Assets/Textures/basic.png");
 				break;
 		}
 

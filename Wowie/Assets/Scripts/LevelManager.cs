@@ -14,6 +14,8 @@ public class LevelManager : MonoBehaviour
     //end define level size
     public Block[,] matrix;
 
+    public GameObject ravina;
+
     private int nextBlock = 0;
 
     /*FIXME: REMOVE FROM PRODUCTION*/
@@ -69,6 +71,7 @@ public class LevelManager : MonoBehaviour
         matrix[x, y] = blocks[index];
 
 
+
         /*TODO: CHAMAR CENA Q METE BLOCO NO MUNDO*/
 
         //para experimentar faz play; vai ao LevelManagee e está la um butao "Add Block"
@@ -85,12 +88,13 @@ public class LevelManager : MonoBehaviour
 
 
         GameObject blockToSpawn = new GameObject();
-        blockToSpawn.transform.position = new Vector3(nextBlock * 4, y, 0f);
+        blockToSpawn.transform.position = new Vector3(ravina.transform.position.x + ravina.transform.localScale.x + nextBlock * 4 + blockToSpawn.transform.localScale.x, y, 0f);
         blockToSpawn.name = blocks[index].blk.ToString();
         blockToSpawn.AddComponent<BlockManager>();
         blockToSpawn.GetComponent<BlockManager>().blk = blocks[index];
         blockToSpawn.AddComponent<SpriteRenderer>();
         blockToSpawn.GetComponent<SpriteRenderer>().sprite = blocks[index].sprite;
+        blockToSpawn.AddComponent<BoxCollider2D>();
 
 
 

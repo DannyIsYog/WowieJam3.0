@@ -40,5 +40,11 @@ public class PlayerScript : MonoBehaviour
             //levelManager.GetComponent<LevelManager>().placeBlock(0, 0, 0);
             Debug.Log("Spawning Block");
         }
+
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
     }
 }
