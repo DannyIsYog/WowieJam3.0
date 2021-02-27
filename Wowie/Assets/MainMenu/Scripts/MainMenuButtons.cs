@@ -11,8 +11,8 @@ public class MainMenuButtons : MonoBehaviour
     {
         clickSoundEffect.Play();
         music = GameObject.FindGameObjectWithTag("MainMenuMusic");
-        Destroy(music);
-        //SceneManager.LoadScene("");
+        //Destroy(music);
+        SceneManager.LoadScene("CharacterSelection");
     }
 
     public void GoToSettingsMenu()
