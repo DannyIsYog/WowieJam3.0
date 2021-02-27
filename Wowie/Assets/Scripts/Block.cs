@@ -51,7 +51,8 @@ public class Block {
 				break;
 			case BlockType.SpeedDown:
 				speed = 0.8;
-				FileData = File.ReadAllBytes("Assets/Textures/dirt.png");
+				FileData = File.ReadAllBytes("Assets/Textures/speedup.png");
+				xFlip = true;
 				break;
 			case BlockType.Magnet:
 				switch(ori) {
@@ -111,7 +112,7 @@ public class Block {
 				break;
 			case BlockType.Jump:
 				jump = true;
-				FileData = File.ReadAllBytes("Assets/Textures/dirt.png");
+				FileData = File.ReadAllBytes("Assets/Anim/jump/jump4.png");
 				break;
 			case BlockType.Useless:
 				FileData = File.ReadAllBytes("Assets/Textures/basic.png");
