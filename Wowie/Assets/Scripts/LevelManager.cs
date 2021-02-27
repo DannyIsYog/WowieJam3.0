@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -135,6 +135,7 @@ public class LevelManager : MonoBehaviour
         blockToSpawn.GetComponent<BlockManager>().blk = blocks[index];
         blockToSpawn.AddComponent<SpriteRenderer>();
         blockToSpawn.GetComponent<SpriteRenderer>().sprite = blocks[index].sprite;
+        blockToSpawn.GetComponent<SpriteRenderer>().flipX = blocks[index].xFlip;
         blockToSpawn.AddComponent<BoxCollider2D>();
 
 
