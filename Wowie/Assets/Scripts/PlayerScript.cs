@@ -16,6 +16,8 @@ public class PlayerScript : MonoBehaviour
 
     private Animator anim;
 
+    public GameObject blockPicked;
+
     // Use this for initialization
     void Start()
     {
@@ -48,6 +50,7 @@ public class PlayerScript : MonoBehaviour
         if(Input.GetKeyDown("space")) {
             //TODO Call the placeBLock Function on the Level Manager
             //levelManager.GetComponent<LevelManager>().placeBlock(0, 0, 0);
+            levelManager.placeBlock(levelManager.nextBlock, 0, levelManager.nextBlock);
             Debug.Log("Spawning Block");
         }
 
