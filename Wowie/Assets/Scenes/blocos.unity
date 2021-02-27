@@ -235,10 +235,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e036b181097eb8b4a8080ffc7cd7e4c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blocks: []
-  level: 0
+  level: 2
   x: 4
   y: 1
+  AddBlock: 0
 --- !u!4 &1512280132
 Transform:
   m_ObjectHideFlags: 0

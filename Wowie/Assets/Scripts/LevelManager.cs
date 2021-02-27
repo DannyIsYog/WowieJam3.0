@@ -39,10 +39,6 @@ public class LevelManager : MonoBehaviour
         for(int i = 0; i < x; i++)
             for(int k = 0; k < y; k++)
                 matrix[i,k] = null;
-        
-        /*foreach(Block blk in blocks) {
-            Debug.Log(blk.blk);
-        }*/
     }
 
     // Update is called once per frame
@@ -71,14 +67,41 @@ public class LevelManager : MonoBehaviour
                 return false;
 
         matrix[x, y] = blocks[index];
+
+
         /*TODO: CHAMAR CENA Q METE BLOCO NO MUNDO*/
-        Instantiate(null, new Vector3(x, y, 0f), Quaternion.identity);
+
+        //para experimentar faz play; vai ao LevelManagee e está la um butao "Add Block"
+        //isso vai adicionar um block
+        //n está implementado escolher o "seginte"
+        //e o load do sprite está pior q mau
+        //I wish you the best of luck
+        //os Sprite sºao "loaded" no Block
+        //no codigo abaixo esses blocos sºao loaded para o BlockManager q é adicionado ao novo game object
+        //n percebi como usar o instanciate...
+        //pls muda o load das texturas no Block...
+        //Good night :zzz:
+        //P.S.: no idea how to use the Prefab in this scenario, I'm building the GameObject from scratch ;)
+
+
+        GameObject blockToSpawn = new GameObject();
+        blockToSpawn.transform.position = new Vector3(nextBlock * 4, y, 0f);
+        blockToSpawn.name = blocks[index].blk.ToString();
+        blockToSpawn.AddComponent<BlockManager>();
+        blockToSpawn.GetComponent<BlockManager>().blk = blocks[index];
+        blockToSpawn.AddComponent<SpriteRenderer>();
+        blockToSpawn.GetComponent<SpriteRenderer>().sprite = blocks[index].sprite;
+
+
+
+
+        //Instantiate(blockToSpawn, new Vector3(nextBlock * 2, y, 0f), Quaternion.identity);
         return true;
     }
 
     Block getBlock(GameObject obj) {
         //if(obj.CompareTag("gameBlock"))
-            return obj.GetComponent<Block>();
+            return (obj.GetComponent<BlockManager>()).blk;
         //return null;
     }
 
@@ -90,7 +113,7 @@ public class LevelManager : MonoBehaviour
         return false;
     }
 
-    /*1D ONLY*/
+    /*1Dimension ONLY*/
     bool checkBlacklist(int x, int y, Block blk) {
         if(matrix[x - 1, y] != null)
             return isIncompatibile(blk, matrix[x - 1, y]);
