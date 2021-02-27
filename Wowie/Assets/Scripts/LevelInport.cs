@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelInport : MonoBehaviour{
+public class LevelInport{
     public static List<List<Block>> levels;
     static LevelInport(){
         levels = new List<List<Block>>();
