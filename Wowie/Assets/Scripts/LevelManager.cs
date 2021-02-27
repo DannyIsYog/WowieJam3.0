@@ -169,7 +169,7 @@ public class LevelManager : MonoBehaviour
     }
 
     public void playerSpawn() {
-        Instantiate(PlayerPrefab, ravinaPlayerSpawn.transform);
+        Instantiate(PlayerPrefab, ravinaPlayerSpawn.transform, false);
     }
 
     public void colission(GameObject obj) {
