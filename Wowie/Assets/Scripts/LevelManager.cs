@@ -8,13 +8,20 @@ public class LevelManager : MonoBehaviour
 {
     public List<Block> blocks;
     //define level size
-    public int level = 2;
+    public int level = 3;
     public int x = 4;
     public int y = 1;
     //end define level size
     public Block[,] matrix;
 
-    private int nextBlock = 0;
+    public GameObject ravina;
+    public GameObject ravinaBlockSpawn;
+
+    public GameObject ravinaPlayerSpawn;
+
+    public int nextBlock = 0;
+
+    public Block dummy;
 
     /*FIXME: REMOVE FROM PRODUCTION*/
     [InspectorButton("OnButtonClicked")]
@@ -34,11 +41,12 @@ public class LevelManager : MonoBehaviour
         //blocks = new Block[tmp.Length];
         //for(int i = 0; i < tmp.Length; i++)
         //    blocks[i] = getBlock(tmp[i]);
-        
+
         matrix = new Block[x,y];
         for(int i = 0; i < x; i++)
             for(int k = 0; k < y; k++)
                 matrix[i,k] = null;
+        dummy = new Block(Block.BlockType.Useless);
     }
 
     // Update is called once per frame
@@ -47,26 +55,62 @@ public class LevelManager : MonoBehaviour
         
     }
 
+    public bool removeBlock(int x, int y) {
+        if(matrix[x, y] == null)
+            return false;
+
+        return false;
+    }
+
     public bool placeBlock(int x, int y, int index) {
-        
+
+        /*Debug.Log(blocks);
+        Debug.Log(index);
+        Debug.Log(blocks[index]);
+        Debug.Log(blocks[index].blk.ToString());*/
+
         //Ve se o bloco ja está colocado
         if(isInMatrix(blocks[index]))
             return false;
+
+       // Debug.Log(1);
 
         //ve se o local onde quer colocar está vazio
         if(matrix[x, y] != null)
             return false;
 
+       // Debug.Log(1);
+
         //verifica se estiver na primeira posiçao se está na primeira linha
         if(x == 0 && y != 0)
             return false;
 
-        //verifica se o bloco n está solto
-        if(!(x <= this.x && y <= this.y && ((x > 0 && matrix[x - 1, y] != null) || (y > 0 && matrix[x, y - 1] != null))))
-            if(x != 0 && checkBlacklist(x, y, blocks[index]))
+        //Debug.Log(1);
+
+        //verifica se o bloco está dentro da matrix
+        if(!(x <= this.x && x >= 0))
+            return false;
+
+        //Debug.Log(1);
+        if(x == 0) {
+            if(isIncompatibile(blocks[index], dummy)) {
+                Debug.Log(1);
                 return false;
+            }
+        } else {
+            if(matrix[x - 1, y] == null) {
+                Debug.Log(2);
+                return false;
+            }
+            if(isIncompatibile(blocks[index], matrix[x - 1, y])) {
+                Debug.Log(3);
+                return false;
+            }
+        }
+        Debug.Log(4);
 
         matrix[x, y] = blocks[index];
+
 
 
         /*TODO: CHAMAR CENA Q METE BLOCO NO MUNDO*/
@@ -85,12 +129,13 @@ public class LevelManager : MonoBehaviour
 
 
         GameObject blockToSpawn = new GameObject();
-        blockToSpawn.transform.position = new Vector3(nextBlock * 4, y, 0f);
+        blockToSpawn.transform.position = new Vector3(ravinaBlockSpawn.transform.position.x + ravinaBlockSpawn.transform.localScale.x + nextBlock * 4 + blockToSpawn.transform.localScale.x, y, 0f);
         blockToSpawn.name = blocks[index].blk.ToString();
         blockToSpawn.AddComponent<BlockManager>();
         blockToSpawn.GetComponent<BlockManager>().blk = blocks[index];
         blockToSpawn.AddComponent<SpriteRenderer>();
         blockToSpawn.GetComponent<SpriteRenderer>().sprite = blocks[index].sprite;
+        blockToSpawn.AddComponent<BoxCollider2D>();
 
 
 
@@ -113,28 +158,24 @@ public class LevelManager : MonoBehaviour
         return false;
     }
 
-    /*1Dimension ONLY*/
-    bool checkBlacklist(int x, int y, Block blk) {
-        if(matrix[x - 1, y] != null)
-            return isIncompatibile(blk, matrix[x - 1, y]);
-        /*if(matrix[x, y - 1] != null)
-            if(isIncompatibile(blk, matrix[x, y - 1]))
-                return false;*/
-        
-        return false;
-    }
 
     /*
      * Checks if blocks can be places next to eachother
      * Returns true if incompatible
      * TODO: MAGNETS
      */
-    bool isIncompatibile(Block a, Block b, bool rec=true) {
-        for(int i = 0; i < a.blacklist.Length; i++)
-            if(a.blacklist[i] == b.blk)
+    bool isIncompatibile(Block a, Block b) {
+        //VERIFICA SE O BLOCO A ESTA NA BLACKLIST DE B
+        foreach(Block.MagnetOrientation ori in b.blacklist) {
+            if(ori == a.ori) {
                 return true;
-        if(rec)
-            return isIncompatibile(b, a, false);
+            }
+        }
         return false;
+    }
+
+    public void setRavina(GameObject obj) {
+        ravina = obj;
+        ravinaBlockSpawn = obj.transform.Find("PlatformTest").gameObject;
     }
 }

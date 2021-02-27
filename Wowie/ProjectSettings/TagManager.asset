@@ -6,6 +6,8 @@ TagManager:
   tags:
   - MainMenuMusic
   - SFX
+  - gameBlock
+  - Ravina
   layers:
   - Default
   - TransparentFX
