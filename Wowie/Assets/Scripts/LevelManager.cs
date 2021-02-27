@@ -24,6 +24,8 @@ public class LevelManager : MonoBehaviour
 
     public Block dummy;
 
+    public GameObject PlayerPrefab;
+
     /*FIXME: REMOVE FROM PRODUCTION*/
     [InspectorButton("OnButtonClicked")]
     public bool AddBlock;
@@ -58,6 +60,7 @@ public class LevelManager : MonoBehaviour
                 matrix[i, k] = null;
             }
         dummy = new Block(Block.BlockType.Useless);
+        playerSpawn();
     }
 
     // Update is called once per frame
@@ -160,8 +163,13 @@ public class LevelManager : MonoBehaviour
 
     public void setRavina(GameObject obj) {
         ravina = obj;
-        ravinaBlockSpawn = obj.transform.Find("PlatformTest").gameObject;
+        ravinaBlockSpawn = obj.transform.Find("Platform").gameObject;
+        ravinaPlayerSpawn = obj.transform.Find("PlayerSpawn").gameObject;
         //todo: ao chegar a ravina passar de nivel
+    }
+
+    public void playerSpawn() {
+        Instantiate(PlayerPrefab, ravinaPlayerSpawn.transform);
     }
 
     public void colission(GameObject obj) {
@@ -169,7 +177,7 @@ public class LevelManager : MonoBehaviour
             setRavina(obj);
         }
         if(obj.CompareTag("kill")) {
-            
+            playerSpawn();
         }
     }
 

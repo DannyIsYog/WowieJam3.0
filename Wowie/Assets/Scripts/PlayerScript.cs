@@ -20,6 +20,8 @@ public class PlayerScript : MonoBehaviour
         //Get and store a reference to the Rigidbody2D component so that we can access it.
         rb = GetComponent<Rigidbody2D> ();
 
+        levelManager = GameObject.Find("LevelManager").GetComponent(typeof(LevelManager)) as LevelManager;
+
         //levelManager LevelManger = GameObject.Find("LevelManager").GetComponent<LevelManager>();
 
         //When the game starts there's no item on the player
@@ -49,6 +51,9 @@ public class PlayerScript : MonoBehaviour
     {        
         //Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
         //levelManager.setRavina(col.gameObject);
+        if(col.CompareTag("kill")) {
+            Destroy(gameObject, 3);
+        }
         levelManager.colission(col.gameObject);
     }
 }
