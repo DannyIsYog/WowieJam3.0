@@ -48,6 +48,7 @@ public class PlayerScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {        
         //Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
-        levelManager.setRavina(col.gameObject);
+        //levelManager.setRavina(col.gameObject);
+        levelManager.colission(col.gameObject);
     }
 }
