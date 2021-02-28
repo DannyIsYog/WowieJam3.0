@@ -136,9 +136,12 @@ public class LevelManager : MonoBehaviour
         blockToSpawn.GetComponent<BlockManager>().blk = blocks[index];
         blockToSpawn.GetComponent<SpriteRenderer>().sprite = blocks[index].sprite;
         blockToSpawn.GetComponent<SpriteRenderer>().flipX = blocks[index].xFlip;
-        /*if(blocks[index].jump) {
-            Animator anime = blockToSpawn.GetComponent<Animator>();            
-        }*/
+        if(blocks[index].jump) {
+            //Animator anime = blockToSpawn.GetComponent<Animator>();            
+            blockToSpawn.transform.localScale = new Vector3(blockToSpawn.transform.localScale.x, blockToSpawn.transform.localScale.y * 1.75f, blockToSpawn.transform.localScale.z);
+            blockToSpawn.transform.position = new Vector3(ravinaBlockSpawn.transform.position.x + ravinaBlockSpawn.transform.localScale.x + nextBlock * 4 + blockToSpawn.transform.localScale.x, y + 3 /*blockToSpawn.transform.localScale.y * 1.71*/, 0f);
+
+        }
 
         matrixInstanced[x, y] = blockToSpawn;
         nextBlock++;
