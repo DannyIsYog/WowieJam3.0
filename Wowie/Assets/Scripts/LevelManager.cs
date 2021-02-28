@@ -165,6 +165,10 @@ public class LevelManager : MonoBehaviour
             matrix[x, y] = blocks[index];
             blocksCopy.Remove(blocks[index]);
             nextBlock++;
+            if(BlockPreview) {
+                Destroy(BlockPreview);
+                BlockPreview = null;
+            }
         }
         
         matrixInstanced[x, y] = blockToSpawn;
