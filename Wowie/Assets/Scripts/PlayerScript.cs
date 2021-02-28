@@ -14,6 +14,11 @@ public class PlayerScript : MonoBehaviour
 
     public LevelManager levelManager;//Reference to the Level Manager 
 
+    private AudioSource wiEmitter;
+
+    public AudioClip []wi;
+    public AudioClip []we;
+
     private Animator anim;
 
     public int blockPicked = -1;
@@ -29,6 +34,9 @@ public class PlayerScript : MonoBehaviour
 
         levelManager = GameObject.Find("LevelManager").GetComponent(typeof(LevelManager)) as LevelManager;
         anim = GetComponent<Animator>();
+
+        wiEmitter = GetComponent<AudioSource>();
+        
 
         //levelManager LevelManger = GameObject.Find("LevelManager").GetComponent<LevelManager>();
 
@@ -68,6 +76,8 @@ public class PlayerScript : MonoBehaviour
         if(blk.jump) {
             rb.AddForce(new Vector2(0, 100), ForceMode2D.Impulse);
             col.GetComponent<Animator>().SetTrigger("Jump");
+            wiEmitter.clip = wi[(int)Random.Range(0,wi.Length)];
+            wiEmitter.Play();
         }
     }
 
@@ -76,6 +86,8 @@ public class PlayerScript : MonoBehaviour
         //Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
         //levelManager.setRavina(col.gameObject);
         if(col.CompareTag("kill")) {
+            wiEmitter.clip = we[(int)Random.Range(0, we.Length)];
+            wiEmitter.Play();
             Destroy(gameObject, 3);
         }
         else if(col.CompareTag("gameBlock")) {
