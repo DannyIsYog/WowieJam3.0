@@ -46,8 +46,8 @@ public class PlayerScript : MonoBehaviour
         if(pickedItem) {
             //Makes the player move to the right
             Vector3 tempVect = new Vector3(1.0f, 0f, 0f);
-            tempVect = tempVect.normalized * speed * Time.deltaTime;
-            rb.transform.position += tempVect;
+            transform.Translate(tempVect * Time.deltaTime * speed);
+            
         }
         if(Input.GetKeyDown("space") && !die && blockPicked != -1) {
             levelManager.placeBlock(levelManager.nextBlock, 0, blockPicked);
@@ -59,7 +59,7 @@ public class PlayerScript : MonoBehaviour
         this.speed = this.speed * (float) blk.speed;
 
         if(blk.jump) {
-            rb.AddForce(new Vector2(0, 10), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(0, 100), ForceMode2D.Impulse);
         }
     }
 
