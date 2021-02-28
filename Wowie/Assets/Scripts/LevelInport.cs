@@ -9,6 +9,7 @@ public class LevelInport{
         List<Block> level0 = new List<Block>();
         level0.Add(new Block(Block.BlockType.Useless));
         level0.Add(new Block(Block.BlockType.Useless));
+        level0.Add(new Block(Block.BlockType.Jump));
         levels.Add(level0);
 
         List<Block> level1 = new List<Block>();
