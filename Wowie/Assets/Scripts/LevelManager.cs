@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,9 +11,9 @@ public class LevelManager : MonoBehaviour
 
     private List<Block> blocksCopy;
     //define level size
-    public int level = 3;
-    public int x = 4;
-    public int y = 1;
+    public int level = 0;
+    public int x;
+    private int y=1;
     //end define level size
 
     /* Block Stuff */
