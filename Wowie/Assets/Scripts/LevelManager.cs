@@ -253,9 +253,10 @@ public class LevelManager : MonoBehaviour
     }
 
     public void selectBlock(int index) {
-        Player.GetComponent<PlayerScript>().newPickedItem(index);
-        canvas.gameObject.SetActive(false);
-        
+        if(Player.GetComponent<PlayerScript>().onTheGround) {
+            Player.GetComponent<PlayerScript>().newPickedItem(index);
+            canvas.gameObject.SetActive(false);
+        }
     }
 
 }
