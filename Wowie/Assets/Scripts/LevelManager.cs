@@ -224,22 +224,29 @@ public class LevelManager : MonoBehaviour
     /* UI Inventory Functions */
 
     public void setInventory() {
-        int i = 0;
-
+        int block_i = 0;
+        int button_i = 0;
+        
         foreach(GameObject b in button_list) {
             b.SetActive(false);
         }
-        foreach(Block blk in blocksCopy) {
-            button_list[i].GetComponent<Image>().sprite = blk.sprite;
+        foreach(Block blk in blocks) {
+            if(!blocksCopy.Contains(blk)) {
+                block_i++;
+                continue;
+            }
+            button_list[button_i].GetComponent<Image>().sprite = blk.sprite;
             //flips the image sprite if it needs to be
             if(blk.xFlip) {
-                RectTransform tmp = button_list[i].GetComponent<RectTransform>();
-                button_list[i].GetComponent<RectTransform>().localScale = new Vector3(-tmp.localScale.x, tmp.localScale.y, tmp.localScale.z);
+                RectTransform tmp = button_list[button_i].GetComponent<RectTransform>();
+                button_list[button_i].GetComponent<RectTransform>().localScale = new Vector3(-tmp.localScale.x, tmp.localScale.y, tmp.localScale.z);
 
             }
-            button_list[i].GetComponent<ButtonProps>().index = i;
-            button_list[i].SetActive(true);
-            i++;    
+            button_list[button_i].GetComponent<ButtonProps>().index = block_i;
+            button_list[button_i].SetActive(true);
+
+            block_i++;
+            button_i++;    
         }
         canvas.gameObject.SetActive(true);
     }

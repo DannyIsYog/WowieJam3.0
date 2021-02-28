@@ -1042,7 +1042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e036b181097eb8b4a8080ffc7cd7e4c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 5
+  level: 2
   x: 7
   y: 1
   nextBlock: 0
@@ -1215,7 +1215,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 30
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1239,7 +1239,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 505530643}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.910001, y: 8.173333, z: -40.2}
+  m_LocalPosition: {x: 41.66, y: 8.173333, z: -40.2}
   m_LocalScale: {x: 2, y: 0.6666667, z: 2}
   m_Children:
   - {fileID: 702255819}
@@ -6114,6 +6114,14 @@ PrefabInstance:
     - target: {fileID: 734120434, guid: 73faa2f7526f80d4289ec3529ad6b28d, type: 3}
       propertyPath: m_LocalPosition.z
       value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946139438, guid: 73faa2f7526f80d4289ec3529ad6b28d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 48.4525
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946139438, guid: 73faa2f7526f80d4289ec3529ad6b28d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 30.546
       objectReference: {fileID: 0}
     - target: {fileID: 1946139439, guid: 73faa2f7526f80d4289ec3529ad6b28d, type: 3}
       propertyPath: m_Enabled
