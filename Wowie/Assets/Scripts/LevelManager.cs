@@ -141,7 +141,7 @@ public class LevelManager : MonoBehaviour
         blockToSpawn.transform.position = new Vector3(ravinaBlockSpawn.transform.position.x + ravinaBlockSpawn.transform.localScale.x + nextBlock * 4 + blockToSpawn.transform.localScale.x, y, 0f);
         blockToSpawn.name = blocks[index].blk.ToString() + nextBlock.ToString();
         blockToSpawn.GetComponent<BlockManager>().blk = blocks[index];
-        //blockToSpawn.GetComponent<SpriteRenderer>().sprite = blocks[index].sprite;
+        blockToSpawn.GetComponent<SpriteRenderer>().sprite = blocks[index].sprite;
         blockToSpawn.GetComponent<SpriteRenderer>().flipX = blocks[index].xFlip;
         if(blocks[index].jump) {
             blockToSpawn.transform.localScale = new Vector3(blockToSpawn.transform.localScale.x, blockToSpawn.transform.localScale.y * 1.75f, blockToSpawn.transform.localScale.z);
@@ -210,6 +210,11 @@ public class LevelManager : MonoBehaviour
         int i = 0;
         foreach(Block blk in blocks) {
             button_list[i].GetComponent<Image>().sprite = blk.sprite;
+            ////FIXME: n ta a inverter o butao
+            if(blk.xFlip) {
+                RectTransform tmp = button_list[i].GetComponent<RectTransform>();
+                tmp.localScale.Set(-tmp.localScale.x, tmp.localScale.y, tmp.localScale.z);
+            }
             button_list[i].GetComponent<ButtonProps>().index = i;
             button_list[i].SetActive(true);
             i++;
