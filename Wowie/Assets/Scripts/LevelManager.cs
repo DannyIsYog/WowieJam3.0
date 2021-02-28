@@ -135,18 +135,19 @@ public class LevelManager : MonoBehaviour
         matrix[x, y] = blocks[index];
 
         GameObject blockToSpawn = Instantiate(BlockPrefab, new Vector3(0, 0, 0), new Quaternion());
+        Animator anime = blockToSpawn.GetComponent<Animator>();
+        anime.SetInteger("BlockType", (int)blocks[index].blk);
+        anime.SetInteger("magnetism", (int)blocks[index].ori);
         blockToSpawn.transform.position = new Vector3(ravinaBlockSpawn.transform.position.x + ravinaBlockSpawn.transform.localScale.x + nextBlock * 4 + blockToSpawn.transform.localScale.x, y, 0f);
         blockToSpawn.name = blocks[index].blk.ToString() + nextBlock.ToString();
         blockToSpawn.GetComponent<BlockManager>().blk = blocks[index];
-        blockToSpawn.GetComponent<SpriteRenderer>().sprite = blocks[index].sprite;
+        //blockToSpawn.GetComponent<SpriteRenderer>().sprite = blocks[index].sprite;
         blockToSpawn.GetComponent<SpriteRenderer>().flipX = blocks[index].xFlip;
         if(blocks[index].jump) {
-            //Animator anime = blockToSpawn.GetComponent<Animator>();            
             blockToSpawn.transform.localScale = new Vector3(blockToSpawn.transform.localScale.x, blockToSpawn.transform.localScale.y * 1.75f, blockToSpawn.transform.localScale.z);
             blockToSpawn.transform.position = new Vector3(ravinaBlockSpawn.transform.position.x + ravinaBlockSpawn.transform.localScale.x + nextBlock * 4 + blockToSpawn.transform.localScale.x, y + 3 /*blockToSpawn.transform.localScale.y * 1.71*/, 0f);
-
         }
-
+        
         matrixInstanced[x, y] = blockToSpawn;
         nextBlock++;
         return true;

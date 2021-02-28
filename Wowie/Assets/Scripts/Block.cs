@@ -16,15 +16,14 @@ public class Block {
 	public bool jump=false;
 
 	public enum BlockType {
-		SpeedUp,
-		SpeedDown,
-		Magnet,
-		Jump,
-		Useless,
+		SpeedUp=0,
+		SpeedDown=1,
+		Magnet=2,
+		Jump=3,
+		Useless=4,
 
 		CustomBlock
 	}
-
 	public enum MagnetOrientation {
 		PosNeg, NegPos, PosNeu, NeuPos, NegNeu, NeuNeg, NeuNeu
 	}
@@ -112,7 +111,7 @@ public class Block {
 				break;
 			case BlockType.Jump:
 				jump = true;
-				FileData = File.ReadAllBytes("Assets/Anim/jump/jump4.png");
+				FileData = File.ReadAllBytes("Assets/Anim/bloks/jump4.png");
 				break;
 			case BlockType.Useless:
 				FileData = File.ReadAllBytes("Assets/Textures/basic.png");
@@ -127,7 +126,7 @@ public class Block {
 		Texture2D tex = new Texture2D(2, 2);
 		tex.LoadImage(FileData);
 		this.sprite = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), 100.0f);
-
+		
 	}
 
 	public Block(BlockType blk, double speed, bool jump, bool isMagnetic, bool isAtractive) {
