@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1478947827}
   - component: {fileID: 1478947826}
   - component: {fileID: 4731193358082821680}
-  - component: {fileID: 2804039180370771218}
+  - component: {fileID: 2946184439648401082}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -47,7 +47,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 3.1152341
+  m_Mass: 3.573973
   m_LinearDrag: 0.05
   m_AngularDrag: 0.05
   m_GravityScale: 4
@@ -96,7 +96,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cb695ad1206a456499733c9d9e55abf5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5f004a90127c08145a1c2ef94ec2506a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -143,8 +143,8 @@ MonoBehaviour:
   blockPrefab: {fileID: 0}
   levelManager: {fileID: 0}
   blockPicked: 0
---- !u!70 &2804039180370771218
-CapsuleCollider2D:
+--- !u!58 &2946184439648401082
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -156,6 +156,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.11009002, y: -0.104720354}
-  m_Size: {x: 0.99576426, y: 0.99576426}
-  m_Direction: 0
+  m_Offset: {x: -0.09422493, y: 0.08307022}
+  serializedVersion: 2
+  m_Radius: 0.5332989

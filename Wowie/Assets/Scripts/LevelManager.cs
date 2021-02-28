@@ -74,11 +74,8 @@ public class LevelManager : MonoBehaviour
             }
         }
         dummy = new Block(Block.BlockType.Useless);
-        Debug.Log(1);
         playerSpawn();
-        Debug.Log(2);
         setInventory();
-        Debug.Log(3);
     }
 
     // Update is called once per frame
@@ -104,8 +101,6 @@ public class LevelManager : MonoBehaviour
         //Ve se o bloco ja está colocado
         if(isInMatrix(blocks[index]))
             return false;
-
-       // Debug.Log(1);
 
         //ve se o local onde quer colocar está vazio
         if(matrix[x, y] != null)
@@ -138,7 +133,7 @@ public class LevelManager : MonoBehaviour
         Animator anime = blockToSpawn.GetComponent<Animator>();
         anime.SetInteger("BlockType", (int)blocks[index].blk);
         anime.SetInteger("magnetism", (int)blocks[index].ori);
-        blockToSpawn.transform.position = new Vector3(ravinaBlockSpawn.transform.position.x + ravinaBlockSpawn.transform.localScale.x + nextBlock * 4 + blockToSpawn.transform.localScale.x, y, 0f);
+        blockToSpawn.transform.position = new Vector3(ravinaBlockSpawn.transform.position.x + ravinaBlockSpawn.transform.localScale.x + nextBlock * 4 + blockToSpawn.transform.localScale.x + 1, y - 1, 0f);
         blockToSpawn.name = blocks[index].blk.ToString() + nextBlock.ToString();
         blockToSpawn.GetComponent<BlockManager>().blk = blocks[index];
         blockToSpawn.GetComponent<SpriteRenderer>().sprite = blocks[index].sprite;
@@ -211,19 +206,22 @@ public class LevelManager : MonoBehaviour
         foreach(Block blk in blocks) {
             button_list[i].GetComponent<Image>().sprite = blk.sprite;
             ////FIXME: n ta a inverter o butao
+            Debug.Log(blk.xFlip);
             if(blk.xFlip) {
+                Debug.Log(1);
                 RectTransform tmp = button_list[i].GetComponent<RectTransform>();
-                tmp.localScale.Set(-tmp.localScale.x, tmp.localScale.y, tmp.localScale.z);
+                //tmp.localScale.Set(-tmp.localScale.x, tmp.localScale.y, tmp.localScale.z);
+                button_list[i].GetComponent<RectTransform>().localScale = new Vector3(-tmp.localScale.x, tmp.localScale.y, tmp.localScale.z);
+
             }
             button_list[i].GetComponent<ButtonProps>().index = i;
             button_list[i].SetActive(true);
-            i++;
+            i++;    
         }
         canvas.gameObject.SetActive(true);
     }
 
     public void selectBlock(int index) {
-        Debug.Log(index);
         Player.GetComponent<PlayerScript>().blockPicked = index;
         Player.GetComponent<PlayerScript>().pickedItem = true;
         
