@@ -31,10 +31,14 @@ public class LevelManager : MonoBehaviour
     /* Prefabs */
     public GameObject PlayerPrefab;
 
+    public GameObject Player;
+
     /* UI */
 
     public GameObject BlockPrefab;
     public List<GameObject> button_list = new List<GameObject>();
+
+    public Canvas canvas;
 
     /*FIXME: REMOVE FROM PRODUCTION*/
     [InspectorButton("OnButtonClicked")]
@@ -71,7 +75,7 @@ public class LevelManager : MonoBehaviour
         }
         dummy = new Block(Block.BlockType.Useless);
         Debug.Log(1);
-        //playerSpawn();
+        playerSpawn();
         Debug.Log(2);
         setInventory();
         Debug.Log(3);
@@ -203,11 +207,17 @@ public class LevelManager : MonoBehaviour
 
     public void setInventory() {
         int i = 0;
-        Debug.Log(1);
         foreach(Block blk in blocks) {
             button_list[i].GetComponent<Image>().sprite = blk.sprite;
+            button_list[i].GetComponent<ButtonProps>().block = blk;
+            button_list[i].SetActive(true);
             i++;
         }
+        canvas.gameObject.SetActive(true);
+    }
+
+    public void selectBlock(Block block) {
+        Debug.Log(block);
     }
 
 }
