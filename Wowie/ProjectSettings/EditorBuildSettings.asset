@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Settings.unity
     guid: 08f80221533c2744395f434673ff141a
   - enabled: 1
-    path: "Assets/Scenes/F\xE1bio.unity"
+    path: Assets/Scenes/MainLevel.unity
     guid: 6216c3602e584f34cabe679644ad2401
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
