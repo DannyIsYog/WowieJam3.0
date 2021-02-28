@@ -55,7 +55,7 @@ public class Block {
 				FileData = File.ReadAllBytes("Assets/Textures/chest.png");
 				break;
 			case BlockType.SpeedDown:
-				speed = 0.2;
+				speed = 0.5;
 				FileData = File.ReadAllBytes("Assets/Textures/speedup.png");
 				xFlip = true;
 				break;
