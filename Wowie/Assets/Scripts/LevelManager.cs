@@ -208,6 +208,11 @@ public class LevelManager : MonoBehaviour
             ravinaPlayerSpawn = obj.transform.Find("PlayerSpawn").gameObject;
             level++;
             loadNewLevel();
+            Transform plat = ravina.transform.Find("ChestPlatform");
+            if(plat) {
+                plat.gameObject.SetActive(true);
+            }
+            ravina.transform.Find("Chest").gameObject.SetActive(true);
         }
         //todo: ao chegar a ravina passar de nivel
     }
