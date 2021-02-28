@@ -96,7 +96,6 @@ public class Block {
 						this.blacklist.Add(MagnetOrientation.PosNeu);
 						this.blacklist.Add(MagnetOrientation.PosNeg);
 						this.blacklist.Add(MagnetOrientation.PosPos);
-
 						xFlip = true;
 						break;
 					case MagnetOrientation.NegNeu:
@@ -114,6 +113,28 @@ public class Block {
 						this.blacklist.Add(MagnetOrientation.NegPos);
 						this.blacklist.Add(MagnetOrientation.NegNeu);
 						this.blacklist.Add(MagnetOrientation.NegNeg);
+						break;
+					case MagnetOrientation.NegNeg:
+						this.ori = MagnetOrientation.NegNeg;
+						FileData = File.ReadAllBytes("Assets/Textures/iman_negneg.png");
+						this.blacklist.Clear();
+						this.blacklist.Add(MagnetOrientation.NeuNeu);
+						this.blacklist.Add(MagnetOrientation.NeuNeg);
+						this.blacklist.Add(MagnetOrientation.NeuPos);
+						this.blacklist.Add(MagnetOrientation.NegPos);
+						this.blacklist.Add(MagnetOrientation.NegNeu);
+						this.blacklist.Add(MagnetOrientation.NegNeg);
+						break;
+					case MagnetOrientation.PosPos:
+						this.ori = MagnetOrientation.PosPos;
+						FileData = File.ReadAllBytes("Assets/Textures/iman_pospos.png");
+						this.blacklist.Clear();
+						this.blacklist.Add(MagnetOrientation.NeuNeu);
+						this.blacklist.Add(MagnetOrientation.NeuNeg);
+						this.blacklist.Add(MagnetOrientation.NeuPos);
+						this.blacklist.Add(MagnetOrientation.PosNeu);
+						this.blacklist.Add(MagnetOrientation.PosNeg);
+						this.blacklist.Add(MagnetOrientation.PosPos);
 						break;
 					default:
 						this.ori = MagnetOrientation.NeuNeu;
