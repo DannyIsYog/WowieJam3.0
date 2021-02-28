@@ -21,6 +21,7 @@ public class Block {
 		Magnet=2,
 		Jump=3,
 		Useless=4,
+		chest=5,
 
 		CustomBlock
 	}
@@ -49,6 +50,9 @@ public class Block {
 			case BlockType.SpeedUp:
 				speed = 1.2;
 				FileData = File.ReadAllBytes("Assets/Textures/speedup.png");
+				break;
+			case BlockType.chest:
+				FileData = File.ReadAllBytes("Assets/Textures/chest.png");
 				break;
 			case BlockType.SpeedDown:
 				speed = 0.8;
