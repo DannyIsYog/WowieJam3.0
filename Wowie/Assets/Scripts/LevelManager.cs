@@ -148,11 +148,25 @@ public class LevelManager : MonoBehaviour
         SpriteRenderer tmp = blockToSpawn.GetComponent<SpriteRenderer>();
         tmp.sprite = blocks[index].sprite;
         tmp.flipX = blocks[index].xFlip;
-        blockToSpawn.transform.position = new Vector3(ravinaBlockSpawn.transform.position.x + ravinaBlockSpawn.transform.localScale.x + nextBlock * tmp.bounds.size.x/*4*/ + blockToSpawn.transform.localScale.x + 1, ravinaBlockSpawn.transform.position.y + ravinaBlockSpawn.transform.localScale.y - (tmp.bounds.size.y/2), 0f);
+        blockToSpawn.transform.position = new Vector3(ravinaBlockSpawn.transform.position.x + ravinaBlockSpawn.transform.localScale.x + nextBlock * 4.02f/*tmp.bounds.size.x/*4*/ + blockToSpawn.transform.localScale.x + 1, ravinaBlockSpawn.transform.position.y + ravinaBlockSpawn.transform.localScale.y - (tmp.bounds.size.y/2), 0f);
+        
+        if(false)
+            if(!preview) {
+                Debug.LogWarning(blocks[index].blk.ToString() + " " + blocks[index].ori.ToString() + ":" + nextBlock.ToString() + " flip:" + tmp.flipX + "\npos: " + blockToSpawn.transform.position);
+                Debug.Log(ravinaBlockSpawn.transform.position.x);
+                Debug.Log(ravinaBlockSpawn.transform.localScale.x);//fim do colider da base da ravina
+                Debug.Log(nextBlock);
+                Debug.Log(tmp.bounds.size.x);
+                Debug.Log(blockToSpawn.transform.localScale.x);
+                Debug.Log(ravinaBlockSpawn.transform.position.y);
+                Debug.Log(ravinaBlockSpawn.transform.localScale.y);
+                Debug.Log(tmp.bounds.size.y);
+            }
+            
 
         if(blocks[index].jump) {
             blockToSpawn.transform.localScale = new Vector3(blockToSpawn.transform.localScale.x, blockToSpawn.transform.localScale.y * 1.5f, blockToSpawn.transform.localScale.z);
-            blockToSpawn.transform.position = new Vector3(ravinaBlockSpawn.transform.position.x + ravinaBlockSpawn.transform.localScale.x + nextBlock * tmp.bounds.size.x/*4*/ + blockToSpawn.transform.localScale.x + 1, ravinaBlockSpawn.transform.position.y + ravinaBlockSpawn.transform.localScale.y + (1*tmp.bounds.size.y / 9), 0f);
+            blockToSpawn.transform.position = new Vector3(ravinaBlockSpawn.transform.position.x + ravinaBlockSpawn.transform.localScale.x + nextBlock * 4.02f/*tmp.bounds.size.x/*4*/ + blockToSpawn.transform.localScale.x + 1, ravinaBlockSpawn.transform.position.y + ravinaBlockSpawn.transform.localScale.y + (1*tmp.bounds.size.y / 9), 0f);
             BoxCollider2D box = blockToSpawn.GetComponent<BoxCollider2D>();
             CircleCollider2D cir = blockToSpawn.GetComponent<CircleCollider2D>();
             box.offset = new Vector2(0,-1.5f);
