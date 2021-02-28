@@ -45,7 +45,7 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         anim.SetBool("moving", pickedItem);
-        if(pickedItem) {
+        if(pickedItem && onTheGround) {
             //Makes the player move to the right
             Vector3 tempVect = new Vector3(1.0f, 0f, 0f);
             transform.Translate(tempVect * Time.deltaTime * speed);
