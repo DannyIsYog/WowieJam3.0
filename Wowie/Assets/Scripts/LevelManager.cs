@@ -43,6 +43,9 @@ public class LevelManager : MonoBehaviour
 
     public Canvas canvas;
 
+    private GameObject pov=null;
+    public GameObject camera;
+
     /*FIXME: REMOVE FROM PRODUCTION*/
     [InspectorButton("OnButtonClicked")]
     public bool AddBlock;
@@ -83,6 +86,9 @@ public class LevelManager : MonoBehaviour
             }
         }
         nextBlock = 0;
+        if(pov) {
+            camera.transform.position = pov.transform.position;
+        }
     }
 
     public void restartLevel() {
@@ -230,6 +236,7 @@ public class LevelManager : MonoBehaviour
             ravina = obj;
             ravinaBlockSpawn = obj.transform.Find("Platform").gameObject;
             ravinaPlayerSpawn = obj.transform.Find("PlayerSpawn").gameObject;
+            pov = obj.transform.Find("CameraTarget").gameObject;
             level++;
             loadNewLevel();
             Transform plat = ravina.transform.Find("ChestPlatform");
