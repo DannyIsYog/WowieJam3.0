@@ -8,6 +8,7 @@ public class ButtonProps : MonoBehaviour
 
     public Block block;
 
+    public int index;
     public LevelManager levelManager;
 
     public 
@@ -23,6 +24,6 @@ public class ButtonProps : MonoBehaviour
     }
 
     public void blockSelected() {
-        levelManager.selectBlock(block);
+        levelManager.selectBlock(index);
     }
 }
