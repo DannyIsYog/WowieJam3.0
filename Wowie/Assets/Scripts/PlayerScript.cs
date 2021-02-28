@@ -16,7 +16,9 @@ public class PlayerScript : MonoBehaviour
 
     private Animator anim;
 
-    public int blockPicked;
+    public int blockPicked = -1;
+
+    public bool die = false;
 
     // Use this for initialization
     void Start()
@@ -47,9 +49,7 @@ public class PlayerScript : MonoBehaviour
             tempVect = tempVect.normalized * speed * Time.deltaTime;
             rb.transform.position += tempVect;
         }
-        if(Input.GetKeyDown("space")) {
-            //TODO Call the placeBLock Function on the Level Manager
-            //levelManager.GetComponent<LevelManager>().placeBlock(0, 0, 0);
+        if(Input.GetKeyDown("space") && !die && blockPicked != -1) {
             levelManager.placeBlock(levelManager.nextBlock, 0, blockPicked);
             Debug.Log("Spawning Block");
         }
@@ -64,5 +64,11 @@ public class PlayerScript : MonoBehaviour
             Destroy(gameObject, 3);
         }
         levelManager.colission(col.gameObject);
+    }
+
+    public void newPickedItem(int index) {
+        blockPicked = index;
+        pickedItem = true;
+        levelManager.placeBlock(levelManager.nextBlock, 0, blockPicked, true);
     }
 }

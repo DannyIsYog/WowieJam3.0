@@ -6,8 +6,6 @@ public class ButtonProps : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public Block block;
-
     public int index;
     public LevelManager levelManager;
 
