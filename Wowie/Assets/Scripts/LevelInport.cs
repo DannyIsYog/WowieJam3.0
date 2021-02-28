@@ -7,7 +7,7 @@ public class LevelInport{
     static LevelInport(){
         levels = new List<List<Block>>();
         List<Block> level0 = new List<Block>();
-
+        level0.Add(new Block(Block.BlockType.Useless));
         level0.Add(new Block(Block.BlockType.Useless));
         levels.Add(level0);
 
