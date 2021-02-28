@@ -151,6 +151,7 @@ public class LevelManager : MonoBehaviour
         }
         if(preview) {
             blockToSpawn.GetComponent<BoxCollider2D>().enabled = false;
+            blockToSpawn.GetComponent<CircleCollider2D>().enabled = false;
             //makes the blocks semi invisible
             blockToSpawn.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f, 0.5f);
             BlockPreview = blockToSpawn;
@@ -226,7 +227,7 @@ public class LevelManager : MonoBehaviour
     public void setInventory() {
         int block_i = 0;
         int button_i = 0;
-        
+
         foreach(GameObject b in button_list) {
             b.SetActive(false);
         }
