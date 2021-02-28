@@ -12,15 +12,15 @@ public class LevelManager : MonoBehaviour
     private List<Block> blocksCopy;
     //define level size
     public int level = 0;
-    public int x;
+    private int x;
     private int y=1;
     //end define level size
 
     /* Block Stuff */
-    public Block[,] matrix;
-    public GameObject[,] matrixInstanced;
+    private Block[,] matrix;
+    private GameObject[,] matrixInstanced;
 
-    public Block dummy;
+    private Block dummy;
 
     public int nextBlock = 0;
 
