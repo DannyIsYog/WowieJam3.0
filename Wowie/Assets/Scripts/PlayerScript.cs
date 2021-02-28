@@ -19,6 +19,7 @@ public class PlayerScript : MonoBehaviour
     public int blockPicked = -1;
 
     public bool die = false;
+    public bool onTheGround = false;
 
     // Use this for initialization
     void Start()
@@ -71,8 +72,10 @@ public class PlayerScript : MonoBehaviour
         if(col.CompareTag("kill")) {
             Destroy(gameObject, 3);
         }
-        if(col.CompareTag("gameBlock")) {
+        else if(col.CompareTag("gameBlock")) {
             getProperties(col.GetComponent<BlockManager>().blk);
+        } else if(col.CompareTag("RavinaGround")) {
+            onTheGround = true;
         }
         levelManager.colission(col.gameObject);
     }
