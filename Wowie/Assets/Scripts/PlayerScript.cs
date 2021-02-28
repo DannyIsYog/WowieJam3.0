@@ -34,7 +34,8 @@ public class PlayerScript : MonoBehaviour
         //When the game starts there's no item on the player
         pickedItem = false;
         anim.SetBool("moving", false);
-        anim.SetInteger("Character", 0);
+
+        anim.SetInteger("Character", PlayerPrefs.GetInt("selectedCharater"));
 
         //var block = Instantiate(blockPrefab, new Vector3(transform.position.x + 2f, transform.position.y - 2f, 0f), Quaternion.identity);
         //block.transform.parent = gameObject.transform;
