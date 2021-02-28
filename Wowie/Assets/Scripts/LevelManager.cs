@@ -132,14 +132,22 @@ public class LevelManager : MonoBehaviour
         Animator anime = blockToSpawn.GetComponent<Animator>();
         anime.SetInteger("BlockType", (int)blocks[index].blk);
         anime.SetInteger("magnetism", (int)blocks[index].ori);
-        blockToSpawn.transform.position = new Vector3(ravinaBlockSpawn.transform.position.x + ravinaBlockSpawn.transform.localScale.x + nextBlock * 4 + blockToSpawn.transform.localScale.x + 1, y - 1, 0f);
         blockToSpawn.name = blocks[index].blk.ToString() + nextBlock.ToString();
         blockToSpawn.GetComponent<BlockManager>().blk = blocks[index];
-        blockToSpawn.GetComponent<SpriteRenderer>().sprite = blocks[index].sprite;
-        blockToSpawn.GetComponent<SpriteRenderer>().flipX = blocks[index].xFlip;
+        SpriteRenderer tmp = blockToSpawn.GetComponent<SpriteRenderer>();
+        tmp.sprite = blocks[index].sprite;
+        tmp.flipX = blocks[index].xFlip;
+        blockToSpawn.transform.position = new Vector3(ravinaBlockSpawn.transform.position.x + ravinaBlockSpawn.transform.localScale.x + nextBlock * tmp.bounds.size.x/*4*/ + blockToSpawn.transform.localScale.x + 1, ravinaBlockSpawn.transform.position.y + ravinaBlockSpawn.transform.localScale.y - (tmp.bounds.size.y/2), 0f);
+
         if(blocks[index].jump) {
-            blockToSpawn.transform.localScale = new Vector3(blockToSpawn.transform.localScale.x, blockToSpawn.transform.localScale.y * 1.75f, blockToSpawn.transform.localScale.z);
-            blockToSpawn.transform.position = new Vector3(ravinaBlockSpawn.transform.position.x + ravinaBlockSpawn.transform.localScale.x + nextBlock * 4 + blockToSpawn.transform.localScale.x, y + 3 /*blockToSpawn.transform.localScale.y * 1.71*/, 0f);
+            blockToSpawn.transform.localScale = new Vector3(blockToSpawn.transform.localScale.x, blockToSpawn.transform.localScale.y * 1.5f, blockToSpawn.transform.localScale.z);
+            blockToSpawn.transform.position = new Vector3(ravinaBlockSpawn.transform.position.x + ravinaBlockSpawn.transform.localScale.x + nextBlock * tmp.bounds.size.x/*4*/ + blockToSpawn.transform.localScale.x + 1, ravinaBlockSpawn.transform.position.y + ravinaBlockSpawn.transform.localScale.y + (1*tmp.bounds.size.y / 9), 0f);
+            BoxCollider2D box = blockToSpawn.GetComponent<BoxCollider2D>();
+            CircleCollider2D cir = blockToSpawn.GetComponent<CircleCollider2D>();
+            box.offset = new Vector2(0,-1.5f);
+            box.size = new Vector2(4, 1.5f);
+            cir.offset = new Vector2(0, -1f);
+            cir.radius = 1f;
         }
         if(preview) {
             blockToSpawn.GetComponent<BoxCollider2D>().enabled = false;
@@ -172,7 +180,6 @@ public class LevelManager : MonoBehaviour
     /*
      * Checks if blocks can be places next to eachother
      * Returns true if incompatible
-     * TODO: MAGNETS
      */
     bool isIncompatibile(Block a, Block b) {
         //VERIFICA SE O BLOCO A ESTA NA BLACKLIST DE B
