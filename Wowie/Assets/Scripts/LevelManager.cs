@@ -254,7 +254,8 @@ public class LevelManager : MonoBehaviour
         }
 
         if(Player) Player.GetComponent<PlayerScript>().die = true;
-        Player = Instantiate(PlayerPrefab, ravinaPlayerSpawn.transform, false); 
+        Player = Instantiate(PlayerPrefab, ravinaPlayerSpawn.transform, false);
+        Player.GetComponent<PlayerScript>().jumpMultiplier = 1.2f;
         setInventory();
     }
 
