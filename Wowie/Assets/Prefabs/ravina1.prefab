@@ -7,6 +7,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2397005598287730612, guid: 622fe9901cab83442bc65ea2f11872de, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397005598287730612, guid: 622fe9901cab83442bc65ea2f11872de, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 4201111579547981027, guid: 622fe9901cab83442bc65ea2f11872de, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.8480096
+      objectReference: {fileID: 0}
+    - target: {fileID: 4201111579547981027, guid: 622fe9901cab83442bc65ea2f11872de, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5.3405495
+      objectReference: {fileID: 0}
+    - target: {fileID: 4201111579547981027, guid: 622fe9901cab83442bc65ea2f11872de, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4201111579547981027, guid: 622fe9901cab83442bc65ea2f11872de, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.513
+      objectReference: {fileID: 0}
     - target: {fileID: 4201111580840392120, guid: 622fe9901cab83442bc65ea2f11872de, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -66,6 +90,22 @@ PrefabInstance:
     - target: {fileID: 4201111580840392127, guid: 622fe9901cab83442bc65ea2f11872de, type: 3}
       propertyPath: m_Name
       value: ravina1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532019079477817836, guid: 622fe9901cab83442bc65ea2f11872de, type: 3}
+      propertyPath: m_Size.x
+      value: 3.8859282
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532019079477817836, guid: 622fe9901cab83442bc65ea2f11872de, type: 3}
+      propertyPath: m_Size.y
+      value: 0.9248457
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532019079477817836, guid: 622fe9901cab83442bc65ea2f11872de, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.011251271
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532019079477817836, guid: 622fe9901cab83442bc65ea2f11872de, type: 3}
+      propertyPath: m_Offset.y
+      value: 3.0438266
       objectReference: {fileID: 0}
     - target: {fileID: 8472487619847205960, guid: 622fe9901cab83442bc65ea2f11872de, type: 3}
       propertyPath: m_LocalPosition.y
