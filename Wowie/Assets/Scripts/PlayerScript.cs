@@ -57,11 +57,13 @@ public class PlayerScript : MonoBehaviour
 
     }
 
-    void getProperties(Block blk) {
+    void getProperties(Collider2D col) {
+        Block blk = col.GetComponent<BlockManager>().blk;
         this.speed = this.speed * (float) blk.speed;
 
         if(blk.jump) {
             rb.AddForce(new Vector2(0, 100), ForceMode2D.Impulse);
+            col.GetComponent<Animator>().SetTrigger("Jump");
         }
     }
 
@@ -73,7 +75,7 @@ public class PlayerScript : MonoBehaviour
             Destroy(gameObject, 3);
         }
         else if(col.CompareTag("gameBlock")) {
-            getProperties(col.GetComponent<BlockManager>().blk);
+            getProperties(col);
         } else if(col.CompareTag("RavinaGround")) {
             onTheGround = true;
         }
