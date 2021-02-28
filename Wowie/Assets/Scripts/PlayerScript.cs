@@ -40,13 +40,13 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
+        anim.SetBool("moving", pickedItem);
         if(pickedItem) {
             //Makes the player move to the right
             Vector3 tempVect = new Vector3(1.0f, 0f, 0f);
             tempVect = tempVect.normalized * speed * Time.deltaTime;
             rb.transform.position += tempVect;
         }
-        anim.SetBool("moving", pickedItem);
         if(Input.GetKeyDown("space")) {
             //TODO Call the placeBLock Function on the Level Manager
             //levelManager.GetComponent<LevelManager>().placeBlock(0, 0, 0);

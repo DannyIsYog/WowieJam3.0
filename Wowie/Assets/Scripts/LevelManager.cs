@@ -31,6 +31,8 @@ public class LevelManager : MonoBehaviour
     /* Prefabs */
     public GameObject PlayerPrefab;
 
+    public GameObject Player;
+
     /* UI */
 
     public GameObject BlockPrefab;
@@ -73,7 +75,7 @@ public class LevelManager : MonoBehaviour
         }
         dummy = new Block(Block.BlockType.Useless);
         Debug.Log(1);
-        //playerSpawn();
+        playerSpawn();
         Debug.Log(2);
         setInventory();
         Debug.Log(3);
@@ -202,7 +204,6 @@ public class LevelManager : MonoBehaviour
 
     public void setInventory() {
         int i = 0;
-        Debug.Log(1);
         foreach(Block blk in blocks) {
             button_list[i].GetComponent<Image>().sprite = blk.sprite;
             button_list[i].GetComponent<ButtonProps>().block = blk;
