@@ -46,6 +46,12 @@ public class LevelInport{
         level5.Add(new Block(Block.BlockType.SpeedUp));
         level5.Add(new Block(Block.BlockType.SpeedUp));
         level5.Add(new Block(Block.BlockType.SpeedUp));
+        level5.Add(new Block(Block.BlockType.SpeedUp));
+        level5.Add(new Block(Block.BlockType.SpeedUp));
+        level5.Add(new Block(Block.BlockType.SpeedUp));
+        level5.Add(new Block(Block.BlockType.SpeedUp));
+        level5.Add(new Block(Block.BlockType.SpeedUp));
+        level5.Add(new Block(Block.BlockType.SpeedUp));
         levels.Add(level5);
     }       
 }

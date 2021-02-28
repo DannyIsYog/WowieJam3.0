@@ -1042,7 +1042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e036b181097eb8b4a8080ffc7cd7e4c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 4
+  level: 5
   x: 7
   y: 1
   nextBlock: 0
@@ -1051,6 +1051,7 @@ MonoBehaviour:
   ravinaPlayerSpawn: {fileID: 425771166}
   PlayerPrefab: {fileID: 3183239326472611634, guid: b36cbdb07ec301f468ecf6c8bd49278a, type: 3}
   Player: {fileID: 0}
+  BlockPreview: {fileID: 0}
   BlockPrefab: {fileID: 5518537978671051549, guid: 2ec263e14e47b824c9a792f8127c8f10, type: 3}
   button_list:
   - {fileID: 1028620679}
@@ -1329,7 +1330,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &572453398
 RectTransform:
   m_ObjectHideFlags: 0

@@ -58,6 +58,10 @@ public class PlayerScript : MonoBehaviour
 
     void getProperties(Block blk) {
         this.speed = this.speed * (float) blk.speed;
+
+        if(blk.jump) {
+            rb.AddForce(new Vector2(0, 10), ForceMode2D.Impulse);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col)
