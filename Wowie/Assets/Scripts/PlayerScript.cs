@@ -56,12 +56,19 @@ public class PlayerScript : MonoBehaviour
 
     }
 
+    void getProperties(Block blk) {
+        this.speed = this.speed * (float) blk.speed;
+    }
+
     void OnTriggerEnter2D(Collider2D col)
     {        
         //Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
         //levelManager.setRavina(col.gameObject);
         if(col.CompareTag("kill")) {
             Destroy(gameObject, 3);
+        }
+        if(col.CompareTag("gameBlock")) {
+            getProperties(col.GetComponent<BlockManager>().blk);
         }
         levelManager.colission(col.gameObject);
     }

@@ -48,14 +48,14 @@ public class Block {
 
 		switch(blk) {
 			case BlockType.SpeedUp:
-				speed = 1.2;
+				speed = 1.8;
 				FileData = File.ReadAllBytes("Assets/Textures/speedup.png");
 				break;
 			case BlockType.chest:
 				FileData = File.ReadAllBytes("Assets/Textures/chest.png");
 				break;
 			case BlockType.SpeedDown:
-				speed = 0.8;
+				speed = 0.2;
 				FileData = File.ReadAllBytes("Assets/Textures/speedup.png");
 				xFlip = true;
 				break;
