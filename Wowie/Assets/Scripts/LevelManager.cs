@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class LevelManager : MonoBehaviour
 {
     public List<Block> blocks;
+
+    private List<Block> blocksCopy;
     //define level size
     public int level = 3;
     public int x = 4;
@@ -29,13 +31,14 @@ public class LevelManager : MonoBehaviour
     public GameObject ravinaPlayerSpawn;
 
     /* Prefabs */
-    public GameObject PlayerPrefab;
+    public GameObject PlayerPrefab; //Prefab used to spawn the player
 
-    public GameObject Player;
+    public GameObject Player;   //reference to the current player
+
+    public GameObject BlockPreview = null;
 
     /* UI */
-
-    public GameObject BlockPrefab;
+    public GameObject BlockPrefab; //Prefab used to spawn blocks on the UI
     public List<GameObject> button_list = new List<GameObject>();
 
     public Canvas canvas;
@@ -58,12 +61,10 @@ public class LevelManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start(){
+
         blocks = LevelInport.levels[level];
+        blocksCopy = new List<Block>(blocks);
         this.x = blocks.Count;
-        //GameObject[] tmp = GameObject.FindGameObjectsWithTag("gameBlock");
-        //blocks = new Block[tmp.Length];
-        //for(int i = 0; i < tmp.Length; i++)
-        //    blocks[i] = getBlock(tmp[i]);
 
         matrix = new Block[x,y];
         matrixInstanced = new GameObject[x, y];
@@ -96,7 +97,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public bool placeBlock(int x, int y, int index) {
+    public bool placeBlock(int x, int y, int index, bool preview=false) {
 
         //Ve se o bloco ja está colocado
         if(isInMatrix(blocks[index]))
@@ -127,8 +128,6 @@ public class LevelManager : MonoBehaviour
             }
         }
 
-        matrix[x, y] = blocks[index];
-
         GameObject blockToSpawn = Instantiate(BlockPrefab, new Vector3(0, 0, 0), new Quaternion());
         Animator anime = blockToSpawn.GetComponent<Animator>();
         anime.SetInteger("BlockType", (int)blocks[index].blk);
@@ -142,9 +141,18 @@ public class LevelManager : MonoBehaviour
             blockToSpawn.transform.localScale = new Vector3(blockToSpawn.transform.localScale.x, blockToSpawn.transform.localScale.y * 1.75f, blockToSpawn.transform.localScale.z);
             blockToSpawn.transform.position = new Vector3(ravinaBlockSpawn.transform.position.x + ravinaBlockSpawn.transform.localScale.x + nextBlock * 4 + blockToSpawn.transform.localScale.x, y + 3 /*blockToSpawn.transform.localScale.y * 1.71*/, 0f);
         }
+        if(preview) {
+            blockToSpawn.GetComponent<BoxCollider2D>().enabled = false;
+            //makes the blocks semi invisible
+            blockToSpawn.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f, 0.5f);
+            BlockPreview = blockToSpawn;
+        } else {
+            matrix[x, y] = blocks[index];
+            blocksCopy.Remove(blocks[index]);
+            nextBlock++;
+        }
         
         matrixInstanced[x, y] = blockToSpawn;
-        nextBlock++;
         return true;
     }
 
@@ -187,7 +195,14 @@ public class LevelManager : MonoBehaviour
 
     /* Player Functions */
     public void playerSpawn() {
+        if( BlockPreview) {
+            Destroy(BlockPreview);
+            BlockPreview = null;
+        }
+
+        if(Player) Player.GetComponent<PlayerScript>().die = true;
         Player = Instantiate(PlayerPrefab, ravinaPlayerSpawn.transform, false); 
+        setInventory();
     }
 
     public void colission(GameObject obj) {
@@ -203,14 +218,15 @@ public class LevelManager : MonoBehaviour
 
     public void setInventory() {
         int i = 0;
-        foreach(Block blk in blocks) {
+
+        foreach(GameObject b in button_list) {
+            b.SetActive(false);
+        }
+        foreach(Block blk in blocksCopy) {
             button_list[i].GetComponent<Image>().sprite = blk.sprite;
-            ////FIXME: n ta a inverter o butao
-            Debug.Log(blk.xFlip);
+            //flips the image sprite if it needs to be
             if(blk.xFlip) {
-                Debug.Log(1);
                 RectTransform tmp = button_list[i].GetComponent<RectTransform>();
-                //tmp.localScale.Set(-tmp.localScale.x, tmp.localScale.y, tmp.localScale.z);
                 button_list[i].GetComponent<RectTransform>().localScale = new Vector3(-tmp.localScale.x, tmp.localScale.y, tmp.localScale.z);
 
             }
@@ -222,8 +238,8 @@ public class LevelManager : MonoBehaviour
     }
 
     public void selectBlock(int index) {
-        Player.GetComponent<PlayerScript>().blockPicked = index;
-        Player.GetComponent<PlayerScript>().pickedItem = true;
+        Player.GetComponent<PlayerScript>().newPickedItem(index);
+        canvas.gameObject.SetActive(false);
         
     }
 
