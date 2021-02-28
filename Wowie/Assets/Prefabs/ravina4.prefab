@@ -87,6 +87,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8.364797, y: 0.35649884}
   m_EdgeRadius: 0
+--- !u!1 &2369099614880206667
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7286585200931299434}
+  m_Layer: 0
+  m_Name: CameraTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7286585200931299434
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2369099614880206667}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.91, y: 3.02, z: -5.5599995}
+  m_LocalScale: {x: 0.52261347, y: 0.4938869, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5753641134297942018}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5753641134297942021
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,6 +149,7 @@ Transform:
   - {fileID: 5753641135450761561}
   - {fileID: 734120434}
   - {fileID: 4916224369171807793}
+  - {fileID: 7286585200931299434}
   - {fileID: 6113510589365152270}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -339,7 +370,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1119923906204152687, guid: 9877227b26231a8458d6cd9d329cc0e6, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1119923906204152687, guid: 9877227b26231a8458d6cd9d329cc0e6, type: 3}
       propertyPath: m_LocalScale.x
