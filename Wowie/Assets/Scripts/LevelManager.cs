@@ -62,6 +62,14 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start(){
 
+        loadNewLevel();
+
+        dummy = new Block(Block.BlockType.Useless);
+        playerSpawn();
+        setInventory();
+    }
+
+    public void loadNewLevel() {
         blocks = LevelInport.levels[level];
         blocksCopy = new List<Block>(blocks);
         this.x = blocks.Count;
@@ -74,9 +82,7 @@ public class LevelManager : MonoBehaviour
                 matrix[i, k] = null;
             }
         }
-        dummy = new Block(Block.BlockType.Useless);
-        playerSpawn();
-        setInventory();
+        nextBlock = 0;
     }
 
     // Update is called once per frame
@@ -200,7 +206,8 @@ public class LevelManager : MonoBehaviour
             ravina = obj;
             ravinaBlockSpawn = obj.transform.Find("Platform").gameObject;
             ravinaPlayerSpawn = obj.transform.Find("PlayerSpawn").gameObject;
-            Debug.Log("new ravina");
+            level++;
+            loadNewLevel();
         }
         //todo: ao chegar a ravina passar de nivel
     }
