@@ -246,6 +246,7 @@ public class LevelManager : MonoBehaviour
 
         foreach(GameObject b in button_list) {
             b.SetActive(false);
+            b.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
         }
         foreach(Block blk in blocks) {
             if(!blocksCopy.Contains(blk)) {
@@ -256,7 +257,7 @@ public class LevelManager : MonoBehaviour
             //flips the image sprite if it needs to be
             if(blk.xFlip) {
                 RectTransform tmp = button_list[button_i].GetComponent<RectTransform>();
-                button_list[button_i].GetComponent<RectTransform>().localScale = new Vector3(-tmp.localScale.x, tmp.localScale.y, tmp.localScale.z);
+                button_list[button_i].GetComponent<RectTransform>().localScale = new Vector3(-1,1, 1);
 
             }
             button_list[button_i].GetComponent<ButtonProps>().index = block_i;
