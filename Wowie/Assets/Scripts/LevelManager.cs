@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -195,9 +195,13 @@ public class LevelManager : MonoBehaviour
 
     /* Ravina Functions */
     public void setRavina(GameObject obj) {
-        ravina = obj;
-        ravinaBlockSpawn = obj.transform.Find("Platform").gameObject;
-        ravinaPlayerSpawn = obj.transform.Find("PlayerSpawn").gameObject;
+        Debug.Log("new collision");
+        if(obj != ravina) {
+            ravina = obj;
+            ravinaBlockSpawn = obj.transform.Find("Platform").gameObject;
+            ravinaPlayerSpawn = obj.transform.Find("PlayerSpawn").gameObject;
+            Debug.Log("new ravina");
+        }
         //todo: ao chegar a ravina passar de nivel
     }
 
