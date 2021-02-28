@@ -51,7 +51,6 @@ public class PlayerScript : MonoBehaviour
         }
         if(Input.GetKeyDown("space") && !die && blockPicked != -1) {
             levelManager.placeBlock(levelManager.nextBlock, 0, blockPicked);
-            Debug.Log("Spawning Block");
         }
 
     }
