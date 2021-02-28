@@ -188,7 +188,7 @@ public class LevelManager : MonoBehaviour
 
     /* Player Functions */
     public void playerSpawn() {
-        Instantiate(PlayerPrefab, ravinaPlayerSpawn.transform, false); 
+        Player = Instantiate(PlayerPrefab, ravinaPlayerSpawn.transform, false); 
     }
 
     public void colission(GameObject obj) {
@@ -206,15 +206,18 @@ public class LevelManager : MonoBehaviour
         int i = 0;
         foreach(Block blk in blocks) {
             button_list[i].GetComponent<Image>().sprite = blk.sprite;
-            button_list[i].GetComponent<ButtonProps>().block = blk;
+            button_list[i].GetComponent<ButtonProps>().index = i;
             button_list[i].SetActive(true);
             i++;
         }
         canvas.gameObject.SetActive(true);
     }
 
-    public void selectBlock(Block block) {
-        Debug.Log(block);
+    public void selectBlock(int index) {
+        Debug.Log(index);
+        Player.GetComponent<PlayerScript>().blockPicked = index;
+        Player.GetComponent<PlayerScript>().pickedItem = true;
+        
     }
 
 }
