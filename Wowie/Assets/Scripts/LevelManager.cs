@@ -86,8 +86,9 @@ public class LevelManager : MonoBehaviour
     }
 
     public void restartLevel() {
-        loadNewLevel();
         removeBlock();
+        loadNewLevel();
+        setInventory();
     }
 
     // Update is called once per frame

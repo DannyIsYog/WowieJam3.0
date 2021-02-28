@@ -64,7 +64,7 @@ public class PlayerScript : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.R)) {
             Debug.Log("Restarting Level");
-            //TODO Restart Level
+            levelManager.restartLevel();
         }
 
     }
