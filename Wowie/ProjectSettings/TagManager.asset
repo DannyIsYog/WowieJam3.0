@@ -9,6 +9,7 @@ TagManager:
   - gameBlock
   - Ravina
   - kill
+  - RavinaGround
   layers:
   - Default
   - TransparentFX

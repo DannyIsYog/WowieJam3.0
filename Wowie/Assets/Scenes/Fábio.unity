@@ -1042,7 +1042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e036b181097eb8b4a8080ffc7cd7e4c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 2
+  level: 5
   x: 7
   y: 1
   nextBlock: 0
@@ -6194,6 +6194,14 @@ PrefabInstance:
     - target: {fileID: 5753641135450761564, guid: 73faa2f7526f80d4289ec3529ad6b28d, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5753641135450761564, guid: 73faa2f7526f80d4289ec3529ad6b28d, type: 3}
+      propertyPath: m_TagString
+      value: RavinaGround
+      objectReference: {fileID: 0}
+    - target: {fileID: 5753641135450761565, guid: 73faa2f7526f80d4289ec3529ad6b28d, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73faa2f7526f80d4289ec3529ad6b28d, type: 3}
