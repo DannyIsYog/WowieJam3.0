@@ -18,6 +18,6 @@ public class VictoryMenu : MonoBehaviour
     {
         clickSound.Play();
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Fábio");
+        SceneManager.LoadScene("MainLevel");
     }
 }

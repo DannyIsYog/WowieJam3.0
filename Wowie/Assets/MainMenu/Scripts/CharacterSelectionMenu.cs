@@ -50,6 +50,6 @@ public class CharacterSelectionMenu : MonoBehaviour
         clickSound.Play();
         PlayerPrefs.SetInt("selectedCharater", selectedCharacter);
         Destroy(music);
-        SceneManager.LoadScene("Fábio");
+        SceneManager.LoadScene("MainLevel");
     }
 }
