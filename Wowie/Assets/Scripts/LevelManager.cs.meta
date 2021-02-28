@@ -3,7 +3,15 @@ guid: e036b181097eb8b4a8080ffc7cd7e4c7
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - ravina: {instanceID: 0}
+  - ravinaBlockSpawn: {instanceID: 0}
+  - ravinaPlayerSpawn: {instanceID: 0}
+  - PlayerPrefab: {fileID: 3183239326472611634, guid: b36cbdb07ec301f468ecf6c8bd49278a, type: 3}
+  - Player: {instanceID: 0}
+  - BlockPreview: {instanceID: 0}
+  - BlockPrefab: {fileID: 5518537978671051549, guid: 2ec263e14e47b824c9a792f8127c8f10, type: 3}
+  - canvas: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
