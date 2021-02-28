@@ -16,6 +16,7 @@ public class PlayerScript : MonoBehaviour
 
     private AudioSource wiEmitter;
 
+    private List<Collider2D> molas = new List<Collider2D>();
     public AudioClip []wi;
     public AudioClip []we;
 
@@ -64,7 +65,7 @@ public class PlayerScript : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.R)) {
             Debug.Log("Restarting Level");
-            //TODO Restart Level
+            levelManager.restartLevel();
         }
 
     }
@@ -75,7 +76,8 @@ public class PlayerScript : MonoBehaviour
 
         if(blk.jump) {
             rb.AddForce(new Vector2(0, 100), ForceMode2D.Impulse);
-            col.GetComponent<Animator>().SetTrigger("Jump");
+            col.GetComponent<Animator>().SetBool("Jump", true);
+            molas.Add(col);
             wiEmitter.clip = wi[(int)Random.Range(0,wi.Length)];
             wiEmitter.Play();
         }
@@ -88,6 +90,9 @@ public class PlayerScript : MonoBehaviour
         if(col.CompareTag("kill")) {
             wiEmitter.clip = we[(int)Random.Range(0, we.Length)];
             wiEmitter.Play();
+            foreach(Collider2D c in molas) {
+                c.GetComponent<Animator>().SetBool("Jump", false);
+            }
             Destroy(gameObject, 3);
         }
         else if(col.CompareTag("gameBlock")) {
