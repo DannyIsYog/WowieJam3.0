@@ -38,23 +38,17 @@ public class LevelInport{
         level.Add(new Block(Block.BlockType.Magnet, Block.MagnetOrientation.PosNeu));
 
 
-
-
         level = new List<Block>();
         levels.Add(level);
         level.Add(new Block(Block.BlockType.SpeedUp));
         level.Add(new Block(Block.BlockType.Jump));
         level.Add(new Block(Block.BlockType.Useless));
-        level.Add(new Block(Block.BlockType.Useless));
-        level.Add(new Block(Block.BlockType.SpeedUp));
-        level.Add(new Block(Block.BlockType.SpeedUp));
         level.Add(new Block(Block.BlockType.SpeedUp));
         level.Add(new Block(Block.BlockType.Magnet, Block.MagnetOrientation.NeuNeg));
         level.Add(new Block(Block.BlockType.Magnet, Block.MagnetOrientation.NegPos));
         level.Add(new Block(Block.BlockType.Magnet, Block.MagnetOrientation.PosNeu));
         level.Add(new Block(Block.BlockType.Magnet, Block.MagnetOrientation.NegNeu));
         level.Add(new Block(Block.BlockType.Magnet, Block.MagnetOrientation.NeuPos));
-        level.Add(new Block(Block.BlockType.SpeedDown));
         level.Add(new Block(Block.BlockType.Magnet, Block.MagnetOrientation.PosNeg));
 
     }       
