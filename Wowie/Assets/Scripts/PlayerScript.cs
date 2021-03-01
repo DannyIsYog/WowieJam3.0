@@ -41,7 +41,7 @@ public class PlayerScript : MonoBehaviour
         anim = GetComponent<Animator>();
 
         wiEmitter = GetComponent<AudioSource>();
-        
+        wiEmitter.volume = PlayerPrefs.GetFloat("SoundEffectsPref");
 
         //levelManager LevelManger = GameObject.Find("LevelManager").GetComponent<LevelManager>();
 
