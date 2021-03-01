@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +14,7 @@ public class LevelInport{
         List<Block> level1 = new List<Block>();
         level1.Add(new Block(Block.BlockType.Jump));
         level1.Add(new Block(Block.BlockType.SpeedDown));
+        level0.Add(new Block(Block.BlockType.Useless));
         levels.Add(level1);
 
         List<Block> level2 = new List<Block>();

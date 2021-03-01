@@ -587,6 +587,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ravina4
       objectReference: {fileID: 0}
+    - target: {fileID: 7286585200931299434, guid: 73faa2f7526f80d4289ec3529ad6b28d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.77
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73faa2f7526f80d4289ec3529ad6b28d, type: 3}
 --- !u!1 &815490293
@@ -703,6 +707,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1192174325604687312, guid: 622fe9901cab83442bc65ea2f11872de, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.71
+      objectReference: {fileID: 0}
     - target: {fileID: 4201111579547981031, guid: 622fe9901cab83442bc65ea2f11872de, type: 3}
       propertyPath: m_Size.x
       value: 0.9892079
