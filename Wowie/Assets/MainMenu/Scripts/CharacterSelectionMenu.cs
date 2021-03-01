@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class CharacterSelectionMenu : MonoBehaviour
 {
     [SerializeField] private AudioSource clickSound;
+    [SerializeField] private AudioSource[] pickSound;
+
     private static readonly string SoundEffectsPref = "SoundEffectsPref";
     private GameObject music;
 
@@ -16,7 +18,14 @@ public class CharacterSelectionMenu : MonoBehaviour
     void Start()
     {
         clickSound.volume = PlayerPrefs.GetFloat(SoundEffectsPref);
+
+        for (int i = 0; i < pickSound.Length; i++)
+        {
+            pickSound[i].volume = PlayerPrefs.GetFloat(SoundEffectsPref); 
+        }
+
         music = GameObject.FindGameObjectWithTag("MainMenuMusic");
+
     }
 
     // Update is called once per frame
@@ -31,6 +40,7 @@ public class CharacterSelectionMenu : MonoBehaviour
         clickSound.Play();
         characters[selectedCharacter].SetActive(false);
         selectedCharacter = (selectedCharacter + 1) % characters.Length;
+        pickSound[selectedCharacter].Play();
         characters[selectedCharacter].SetActive(true);
     }
 
@@ -41,6 +51,7 @@ public class CharacterSelectionMenu : MonoBehaviour
         selectedCharacter--;
         
         if (selectedCharacter < 0) selectedCharacter += characters.Length;
+        pickSound[selectedCharacter].Play();
 
         characters[selectedCharacter].SetActive(true);
     }
