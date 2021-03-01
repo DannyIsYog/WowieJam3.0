@@ -846,7 +846,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -235.73538, y: -323.3}
+  m_AnchoredPosition: {x: -235.73538, y: -285}
   m_SizeDelta: {x: 460.81702, y: 1579.1031}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &999619875
@@ -870,6 +870,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'Artists
+
+
 
 
 
@@ -1141,7 +1143,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11, y: -1065}
+  m_AnchoredPosition: {x: -11, y: -1097}
   m_SizeDelta: {x: 361, y: 375}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1124516203
@@ -1679,7 +1681,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 80.9, y: -406.7}
+  m_AnchoredPosition: {x: 80.9, y: -368.40015}
   m_SizeDelta: {x: 754.0056, y: 1924.9539}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1981547389
@@ -1702,11 +1704,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Renata  Candeias\n\nDaniela  \"Crypticat\"  Machado\n\n\n\n\nF\xE1bio 
-    \"DannyIsYog\"  Sousa\n\nSamuel  \"5B4R4T4\"  Barata\n\nFrancisco  \"Nrigz\" 
-    Costa\n\nDaniela  \"Crypticat\"  Machado\n\n\n\n\nDaniela  \"Crypticat\"  Machado\n\n\n\n\nGameDev
-    T\xE9cnico for encouraging our team to participate on this project \n\n\nTo everyone
-    that shares their work for free"
+  m_text: "Renata  Candeias\n\nDaniela  \"Crypticat\"  Machado\n\nSamuel  \"5B4R4T4\" 
+    Barata\n\n\n\n\nF\xE1bio  \"DannyIsYog\"  Sousa\n\nSamuel  \"5B4R4T4\"  Barata\n\nFrancisco 
+    \"Nrigz\"  Costa\n\nDaniela  \"Crypticat\"  Machado\n\n\n\n\nDaniela  \"Crypticat\" 
+    Machado\n\n\n\n\nGameDev T\xE9cnico for encouraging our team to participate on
+    this project \n\n\nTo everyone that shares their work for free"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

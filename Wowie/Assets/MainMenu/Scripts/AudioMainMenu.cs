@@ -21,12 +21,12 @@ public class AudioMainMenu : MonoBehaviour
         if (firstPlayInt == 0)
         {
             backgroundFloat = 0.02f;
-            soundEffectsFloat = 0.02f;
+            soundEffectsFloat = 0.05f;
             PlayerPrefs.SetFloat(BackgroundPref, backgroundFloat);
             PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsFloat);
             PlayerPrefs.SetInt(FirstPlay, -1);
         }
-
+  
         else
         {
             backgroundFloat = PlayerPrefs.GetFloat(BackgroundPref);
