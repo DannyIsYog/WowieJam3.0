@@ -228,6 +228,7 @@ public class LevelManager : MonoBehaviour
             blockToSpawn.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f, 0.5f);
             BlockPreview = blockToSpawn;
         } else {
+            blockToSpawn.GetComponent<AudioSource>().Play();
             matrix[x, y] = blocks[index];
             blocksCopy.Remove(blocks[index]);
             nextBlock++;
