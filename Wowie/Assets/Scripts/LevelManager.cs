@@ -45,6 +45,8 @@ public class LevelManager : MonoBehaviour
     private GameObject pov;
     public GameObject camera;
 
+    public float cameraSpeed = 1f;
+
     /*FIXME: REMOVE FROM PRODUCTION*/
     [InspectorButton("OnButtonClicked")]
     public bool AddBlock;
@@ -86,7 +88,18 @@ public class LevelManager : MonoBehaviour
         }
         nextBlock = 0;
         if(pov) {
-            camera.transform.position = pov.transform.position;
+            //camera.transform.position = pov.transform.position;
+            //camera.transform.position = Vector3.Lerp(camera.transform.position, pov.transform.position, cameraSpeed * Time.deltaTime);
+            InvokeRepeating("moveCamera", 0.1f, 0.01f);
+        }
+    }
+
+    void moveCamera() {
+        camera.transform.position = Vector3.Lerp(camera.transform.position, pov.transform.position, cameraSpeed * Time.deltaTime);
+        cameraSpeed += 1;
+        if(cameraSpeed >= 100) {
+            CancelInvoke();
+            cameraSpeed = 10;
         }
     }
 
