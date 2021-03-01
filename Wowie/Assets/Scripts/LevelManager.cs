@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 //ONLY supports conditions for 1D placement
@@ -15,7 +16,8 @@ public class LevelManager : MonoBehaviour
     private int x;
     private int y=1;
     //end define level size
-
+    
+    public TextMeshProUGUI TutorialText;
     /* Block Stuff */
     private Block[,] matrix;
     private GameObject[,] matrixInstanced;
@@ -92,6 +94,7 @@ public class LevelManager : MonoBehaviour
             //camera.transform.position = Vector3.Lerp(camera.transform.position, pov.transform.position, cameraSpeed * Time.deltaTime);
             InvokeRepeating("moveCamera", 0.1f, 0.017f);
         }
+        changeTutorialText();
     }
 
     void moveCamera() {
@@ -104,6 +107,7 @@ public class LevelManager : MonoBehaviour
     }
 
     public void restartLevel() {
+        Player.GetComponent<PlayerScript>().molas = new List<Collider2D>();
         removeBlock();
         loadNewLevel();
         setInventory();
@@ -124,6 +128,25 @@ public class LevelManager : MonoBehaviour
             matrix[i, 0] = null;
             Destroy(matrixInstanced[i, 0]);
             matrixInstanced[i, 0] = null;
+        }
+    }
+
+    public void changeTutorialText() {
+        switch(level) {
+            case 0:
+                TutorialText.text = "Select one block and press <space> to place it.\nThe objective is to reach the next mountain.";
+                break;
+            case 1:
+                TutorialText.text = "Blocks can have special effects on your player.\nYou can press <R> to restart the level.";
+                break;
+            case 2:
+                TutorialText.text = "\t\t\t  Magnets can only connect with 			            oposing poles.(<R> to restart)\n	                      Good Luck!";
+                break;
+            case 3:
+                TutorialText.text = "Tutorial 4";
+                break;
+            default:
+                break;
         }
     }
 
@@ -169,7 +192,7 @@ public class LevelManager : MonoBehaviour
         tmp.flipX = blocks[index].xFlip;
         blockToSpawn.transform.position = new Vector3(ravinaBlockSpawn.transform.position.x + ravinaBlockSpawn.transform.localScale.x + nextBlock * 4.02f/*tmp.bounds.size.x/*4*/ + blockToSpawn.transform.localScale.x + 1, ravinaBlockSpawn.transform.position.y + ravinaBlockSpawn.transform.localScale.y - (tmp.bounds.size.y/2), 0f);
         
-        if(false)
+        /*if(false)
             if(!preview) {
                 Debug.LogWarning(blocks[index].blk.ToString() + " " + blocks[index].ori.ToString() + ":" + nextBlock.ToString() + " flip:" + tmp.flipX + "\npos: " + blockToSpawn.transform.position);
                 Debug.Log(ravinaBlockSpawn.transform.position.x);
@@ -180,7 +203,7 @@ public class LevelManager : MonoBehaviour
                 Debug.Log(ravinaBlockSpawn.transform.position.y);
                 Debug.Log(ravinaBlockSpawn.transform.localScale.y);
                 Debug.Log(tmp.bounds.size.y);
-            }
+            }*/
             
 
         if(blocks[index].jump) {

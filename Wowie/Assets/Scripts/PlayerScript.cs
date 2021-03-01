@@ -16,7 +16,7 @@ public class PlayerScript : MonoBehaviour
 
     private AudioSource wiEmitter;
 
-    private List<Collider2D> molas = new List<Collider2D>();
+    public List<Collider2D> molas = new List<Collider2D>();
     public AudioClip []wi;
     public AudioClip []we;
 
@@ -41,7 +41,7 @@ public class PlayerScript : MonoBehaviour
         anim = GetComponent<Animator>();
 
         wiEmitter = GetComponent<AudioSource>();
-        
+        wiEmitter.volume = PlayerPrefs.GetFloat("SoundEffectsPref");
 
         //levelManager LevelManger = GameObject.Find("LevelManager").GetComponent<LevelManager>();
 
