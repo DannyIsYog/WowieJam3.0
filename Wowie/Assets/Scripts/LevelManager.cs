@@ -90,13 +90,13 @@ public class LevelManager : MonoBehaviour
         if(pov) {
             //camera.transform.position = pov.transform.position;
             //camera.transform.position = Vector3.Lerp(camera.transform.position, pov.transform.position, cameraSpeed * Time.deltaTime);
-            InvokeRepeating("moveCamera", 0.1f, 0.01f);
+            InvokeRepeating("moveCamera", 0.1f, 0.017f);
         }
     }
 
     void moveCamera() {
         camera.transform.position = Vector3.Lerp(camera.transform.position, pov.transform.position, cameraSpeed * Time.deltaTime);
-        cameraSpeed += 1;
+        cameraSpeed += 0.002f;
         if(cameraSpeed >= 100) {
             CancelInvoke();
             cameraSpeed = 10;
