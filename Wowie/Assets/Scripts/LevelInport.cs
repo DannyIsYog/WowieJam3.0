@@ -27,41 +27,24 @@ public class LevelInport{
         level2.Add(new Block(Block.BlockType.Magnet, Block.MagnetOrientation.PosNeg));
         levels.Add(level2);
 
-        List<Block> level3 = new List<Block>();
-        levels.Add(level3);
-        /*
-        List<Block> level3 = new List<Block>();
-        level3.Add(new Block(Block.BlockType.Magnet, Block.MagnetOrientation.NeuPos));
-        level3.Add(new Block(Block.BlockType.Magnet, Block.MagnetOrientation.NegNeu));
-        level3.Add(new Block(Block.BlockType.SpeedDown));
-        level3.Add(new Block(Block.BlockType.Magnet, Block.MagnetOrientation.NeuPos));
-        level3.Add(new Block(Block.BlockType.Magnet, Block.MagnetOrientation.NegPos));
-        level3.Add(new Block(Block.BlockType.Magnet, Block.MagnetOrientation.NegNeu));
-        level3.Add(new Block(Block.BlockType.Useless));
-        level3.Add(new Block(Block.BlockType.Jump));
-        levels.Add(level3);
+        levels.Add(new List<Block>());//level3
 
+        List<Block> level = new List<Block>();
+        levels.Add(level);
+        level.Add(new Block(Block.BlockType.SpeedUp));
+        level.Add(new Block(Block.BlockType.Jump));
+        level.Add(new Block(Block.BlockType.Useless));
+        level.Add(new Block(Block.BlockType.Useless));
+        level.Add(new Block(Block.BlockType.SpeedUp));
+        level.Add(new Block(Block.BlockType.SpeedUp));
+        level.Add(new Block(Block.BlockType.SpeedUp));
+        level.Add(new Block(Block.BlockType.Magnet, Block.MagnetOrientation.NeuNeg));
+        level.Add(new Block(Block.BlockType.Magnet, Block.MagnetOrientation.NegPos));
+        level.Add(new Block(Block.BlockType.Magnet, Block.MagnetOrientation.PosNeu));
+        level.Add(new Block(Block.BlockType.Magnet, Block.MagnetOrientation.NegNeu));
+        level.Add(new Block(Block.BlockType.Magnet, Block.MagnetOrientation.NeuPos));
+        level.Add(new Block(Block.BlockType.SpeedDown));
+        level.Add(new Block(Block.BlockType.Magnet, Block.MagnetOrientation.PosNeg));
 
-        List<Block> level4 = new List<Block>();
-        level4.Add(new Block(Block.BlockType.Magnet, Block.MagnetOrientation.NegNeg));
-        level4.Add(new Block(Block.BlockType.Magnet, Block.MagnetOrientation.PosPos));
-        level4.Add(new Block(Block.BlockType.Magnet, Block.MagnetOrientation.NeuNeg));
-        levels.Add(level4);
-
-        List<Block> level5 = new List<Block>();
-        level5.Add(new Block(Block.BlockType.SpeedUp));
-        level5.Add(new Block(Block.BlockType.SpeedUp));
-        level5.Add(new Block(Block.BlockType.SpeedUp));
-        level5.Add(new Block(Block.BlockType.SpeedUp));
-        level5.Add(new Block(Block.BlockType.SpeedUp));
-        level5.Add(new Block(Block.BlockType.SpeedUp));
-        level5.Add(new Block(Block.BlockType.SpeedUp));
-        level5.Add(new Block(Block.BlockType.SpeedUp));
-        level5.Add(new Block(Block.BlockType.SpeedUp));
-        level5.Add(new Block(Block.BlockType.SpeedUp));
-        level5.Add(new Block(Block.BlockType.SpeedUp));
-        level5.Add(new Block(Block.BlockType.SpeedUp));
-        levels.Add(level5);
-        */
     }       
 }
