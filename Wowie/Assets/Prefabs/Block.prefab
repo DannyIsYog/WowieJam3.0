@@ -163,6 +163,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea10d6f91353184fbd990454f965841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tex:
+  - {fileID: 2800000, guid: 7270e36ca58890a4ebbce2625d933233, type: 3}
+  - {fileID: 2800000, guid: 7270e36ca58890a4ebbce2625d933233, type: 3}
+  - {fileID: 2800000, guid: 452dad6e11953da45a1a726929140ae2, type: 3}
+  - {fileID: 2800000, guid: 4836966efa8a89843a66fefa15c17ebc, type: 3}
+  - {fileID: 2800000, guid: 452dad6e11953da45a1a726929140ae2, type: 3}
+  - {fileID: 2800000, guid: bdb99114081c73740a326f68c54c73c1, type: 3}
+  magnets:
+  - {fileID: 2800000, guid: 61beb58a9c0460a4399154db7d0586c1, type: 3}
+  - {fileID: 2800000, guid: 61beb58a9c0460a4399154db7d0586c1, type: 3}
+  - {fileID: 2800000, guid: a90e078aa3aad86489e2a667fbb620ad, type: 3}
+  - {fileID: 2800000, guid: a90e078aa3aad86489e2a667fbb620ad, type: 3}
+  - {fileID: 2800000, guid: 321aaad26d0ed3943996b349379ba5d6, type: 3}
+  - {fileID: 2800000, guid: 321aaad26d0ed3943996b349379ba5d6, type: 3}
+  - {fileID: 2800000, guid: 452dad6e11953da45a1a726929140ae2, type: 3}
+  - {fileID: 2800000, guid: b7c28c521b9e2984ba64af14945f2404, type: 3}
+  - {fileID: 2800000, guid: 27e9c92b97e194f4b84b219397649804, type: 3}
+  speedup:
+  - {fileID: 2800000, guid: 7e523d6136856014f8a2e8f9ee93a36c, type: 3}
+  - {fileID: 2800000, guid: 989258744f738b64697f36abc14e7449, type: 3}
+  - {fileID: 2800000, guid: 7270e36ca58890a4ebbce2625d933233, type: 3}
+  - {fileID: 2800000, guid: 7270e36ca58890a4ebbce2625d933233, type: 3}
+  - {fileID: 2800000, guid: 7270e36ca58890a4ebbce2625d933233, type: 3}
+  - {fileID: 2800000, guid: 7270e36ca58890a4ebbce2625d933233, type: 3}
+  - {fileID: 2800000, guid: 7270e36ca58890a4ebbce2625d933233, type: 3}
+  - {fileID: 2800000, guid: 7270e36ca58890a4ebbce2625d933233, type: 3}
+  - {fileID: 2800000, guid: 7270e36ca58890a4ebbce2625d933233, type: 3}
 --- !u!58 &7102968485308611749
 CircleCollider2D:
   m_ObjectHideFlags: 0

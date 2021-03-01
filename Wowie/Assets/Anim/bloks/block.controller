@@ -37,6 +37,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: magnetism
     m_EventTreshold: 1
+  - m_ConditionMode: 6
+    m_ConditionEvent: BlockType
+    m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1800938392654847495}
   m_Solo: 0
@@ -87,6 +90,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: BlockType
     m_EventTreshold: 0
+  - m_ConditionMode: 6
+    m_ConditionEvent: magnetism
+    m_EventTreshold: 6
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7339357773272038533}
   m_Solo: 0
@@ -127,6 +133,32 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1102 &-6256678519909403621
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: speedUp_posNeg
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 5dfc94cd00e3f804487f61cad46c9804, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1101 &-5977907155364673345
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -138,6 +170,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: magnetism
     m_EventTreshold: 0
+  - m_ConditionMode: 6
+    m_ConditionEvent: BlockType
+    m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 771192476529805152}
   m_Solo: 0
@@ -163,6 +198,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: magnetism
     m_EventTreshold: 4
+  - m_ConditionMode: 6
+    m_ConditionEvent: BlockType
+    m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6342942472612652509}
   m_Solo: 0
@@ -277,6 +315,34 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1101 &-1493875969865145605
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 6
+    m_ConditionEvent: BlockType
+    m_EventTreshold: 0
+  - m_ConditionMode: 6
+    m_ConditionEvent: magnetism
+    m_EventTreshold: 1
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 1971120681397694676}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_ExitTime: 0
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1102 &-1440652488468735937
 AnimatorState:
   serializedVersion: 5
@@ -328,6 +394,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: BlockType
     m_EventTreshold: 3
+  - m_ConditionMode: 6
+    m_ConditionEvent: magnetism
+    m_EventTreshold: 6
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3175352831263599299}
   m_Solo: 0
@@ -356,19 +425,19 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: magnetism
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Jump
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -419,6 +488,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: magnetism
     m_EventTreshold: 2
+  - m_ConditionMode: 6
+    m_ConditionEvent: BlockType
+    m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4585451594033556483}
   m_Solo: 0
@@ -444,6 +516,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: magnetism
     m_EventTreshold: 7
+  - m_ConditionMode: 6
+    m_ConditionEvent: BlockType
+    m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8601971026607167725}
   m_Solo: 0
@@ -482,6 +557,8 @@ AnimatorState:
   - {fileID: 1278175910700912967}
   - {fileID: 9075516302492684703}
   - {fileID: 2309568308515900941}
+  - {fileID: 8741858552552254804}
+  - {fileID: -1493875969865145605}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -523,6 +600,32 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1102 &1971120681397694676
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: speedUp_NegPos
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 5381ebcc8fea86341ada3d1ccdec47bb, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1101 &2290100092494279973
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -559,6 +662,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: BlockType
     m_EventTreshold: 5
+  - m_ConditionMode: 6
+    m_ConditionEvent: magnetism
+    m_EventTreshold: 6
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -3684731183530278973}
   m_Solo: 0
@@ -637,6 +743,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: magnetism
     m_EventTreshold: 3
+  - m_ConditionMode: 6
+    m_ConditionEvent: BlockType
+    m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2705254274110028200}
   m_Solo: 0
@@ -730,10 +839,10 @@ AnimatorStateMachine:
     m_Position: {x: -10, y: 280, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1579557418096878678}
-    m_Position: {x: -10, y: 320, z: 0}
+    m_Position: {x: -10, y: 360, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2705254274110028200}
-    m_Position: {x: -10, y: 360, z: 0}
+    m_Position: {x: -10, y: 320, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 771192476529805152}
     m_Position: {x: -10, y: 400, z: 0}
@@ -761,6 +870,12 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 7657301249032141577}
     m_Position: {x: 400, y: 100, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 1971120681397694676}
+    m_Position: {x: 530, y: 450, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -6256678519909403621}
+    m_Position: {x: 530, y: 410, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions:
@@ -783,6 +898,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: BlockType
     m_EventTreshold: 4
+  - m_ConditionMode: 6
+    m_ConditionEvent: magnetism
+    m_EventTreshold: 6
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1440652488468735937}
   m_Solo: 0
@@ -886,6 +1004,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: magnetism
     m_EventTreshold: 5
+  - m_ConditionMode: 6
+    m_ConditionEvent: BlockType
+    m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1579557418096878678}
   m_Solo: 0
@@ -926,6 +1047,34 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1101 &8741858552552254804
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 6
+    m_ConditionEvent: BlockType
+    m_EventTreshold: 0
+  - m_ConditionMode: 6
+    m_ConditionEvent: magnetism
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -6256678519909403621}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_ExitTime: 0
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1101 &8909807884305233645
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -937,6 +1086,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: BlockType
     m_EventTreshold: 1
+  - m_ConditionMode: 6
+    m_ConditionEvent: magnetism
+    m_EventTreshold: 6
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6452785009497822571}
   m_Solo: 0
@@ -958,7 +1110,13 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 6
+    m_ConditionEvent: BlockType
+    m_EventTreshold: 2
+  - m_ConditionMode: 6
+    m_ConditionEvent: magnetism
+    m_EventTreshold: 8
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8377164678517216797}
   m_Solo: 0

@@ -192,7 +192,8 @@ public class LevelManager : MonoBehaviour
         blockToSpawn.name = blocks[index].blk.ToString() + nextBlock.ToString();
         blockToSpawn.GetComponent<BlockManager>().blk = blocks[index];
         SpriteRenderer tmp = blockToSpawn.GetComponent<SpriteRenderer>();
-        tmp.sprite = blocks[index].sprite;
+        tmp.sprite = blockToSpawn.GetComponent<BlockManager>().getSprite();
+        //tmp.sprite = blocks[index].sprite;
         tmp.flipX = blocks[index].xFlip;
         blockToSpawn.transform.position = new Vector3(ravinaBlockSpawn.transform.position.x + ravinaBlockSpawn.transform.localScale.x + nextBlock * 4.02f/*tmp.bounds.size.x/*4*/ + blockToSpawn.transform.localScale.x + 1, ravinaBlockSpawn.transform.position.y + ravinaBlockSpawn.transform.localScale.y - (tmp.bounds.size.y/2), 0f);
         
@@ -323,7 +324,14 @@ public class LevelManager : MonoBehaviour
                 block_i++;
                 continue;
             }
-            button_list[button_i].GetComponent<Image>().sprite = blk.sprite;
+
+            GameObject blockToSpawn = Instantiate(BlockPrefab, new Vector3(-2000, -2000, -2000), new Quaternion());
+            blockToSpawn.GetComponent<BlockManager>().blk = blk;
+            
+            button_list[button_i].GetComponent<Image>().sprite = blockToSpawn.GetComponent<BlockManager>().getSprite();
+            
+            Destroy(blockToSpawn);
+
             //flips the image sprite if it needs to be
             if(blk.xFlip) {
                 RectTransform tmp = button_list[button_i].GetComponent<RectTransform>();
