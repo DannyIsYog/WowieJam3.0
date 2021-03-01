@@ -44,6 +44,8 @@ public class LevelManager : MonoBehaviour
 
     public Canvas canvas;
 
+    public Canvas VictoryCanvas;
+
     private GameObject pov;
     public GameObject camera;
 
@@ -140,10 +142,12 @@ public class LevelManager : MonoBehaviour
                 TutorialText.text = "Blocks can have special effects on your player.\nYou can press <R> to restart the level.";
                 break;
             case 2:
-                TutorialText.text = "\t\t\t  Magnets can only connect with 			            oposing poles.(<R> to restart)\n	                      Good Luck!";
+                TutorialText.text = "			     Magnets can only connect\n                                   with oposing poles.\n	                         Good Luck! <R> to Restart";
                 break;
             case 3:
-                TutorialText.text = "Tutorial 4";
+                TutorialText.text = "End of Tutorial";
+                canvas.gameObject.SetActive(false);
+                VictoryCanvas.gameObject.SetActive(true);
                 break;
             default:
                 break;
