@@ -7,11 +7,16 @@ public class MainMenuButtons : MonoBehaviour
 {
     private GameObject music;
     [SerializeField] private AudioSource clickSoundEffect;
+    [SerializeField] private GameObject dontDestroyScript;
+
+    public void Start()
+    {
+        music = GameObject.FindGameObjectWithTag("MainMenuMusic");
+    }
+
     public void PlayGame()
     {
         clickSoundEffect.Play();
-        music = GameObject.FindGameObjectWithTag("MainMenuMusic");
-        //Destroy(music);
         SceneManager.LoadScene("CharacterSelection");
     }
 
@@ -29,6 +34,7 @@ public class MainMenuButtons : MonoBehaviour
 
     public void GoToTutorial()
     {
+        Destroy(music);
         clickSoundEffect.Play();
         SceneManager.LoadScene("Tutorial");
     }
