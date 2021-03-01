@@ -44,7 +44,7 @@ public class LevelManager : MonoBehaviour
 
     public Canvas canvas;
 
-    public Canvas VictoryCanvas;
+    public GameObject VictoryCanvas;
 
     private GameObject pov;
     public GameObject camera;

@@ -502,6 +502,10 @@ PrefabInstance:
       propertyPath: ravina
       value: 
       objectReference: {fileID: 1612050069}
+    - target: {fileID: 2158985338191970561, guid: 36b2004a4635a77448cddc71e7dae668, type: 3}
+      propertyPath: VictoryCanvas
+      value: 
+      objectReference: {fileID: 1801345583}
     - target: {fileID: 2158985338191970566, guid: 36b2004a4635a77448cddc71e7dae668, type: 3}
       propertyPath: m_RootOrder
       value: 3
