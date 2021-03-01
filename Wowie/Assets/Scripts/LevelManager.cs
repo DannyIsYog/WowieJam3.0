@@ -145,7 +145,7 @@ public class LevelManager : MonoBehaviour
                 TutorialText.text = "			     Magnets can only connect\n                                   with oposing poles.\n	                         Good Luck! <R> to Restart";
                 break;
             case 3:
-                TutorialText.text = "End of Tutorial";
+                TutorialText.text = "                              End of Tutorial";
                 canvas.gameObject.SetActive(false);
                 VictoryCanvas.gameObject.SetActive(true);
                 break;
