@@ -34,9 +34,9 @@ public class LevelManager : MonoBehaviour
     /* Prefabs */
     public GameObject PlayerPrefab; //Prefab used to spawn the player
 
-    public GameObject Player;   //reference to the current player
+    private GameObject Player;   //reference to the current player
 
-    public GameObject BlockPreview = null;
+    private GameObject BlockPreview = null;
 
     /* UI */
     public GameObject BlockPrefab; //Prefab used to spawn blocks on the UI
