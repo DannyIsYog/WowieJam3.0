@@ -27,6 +27,10 @@ public class PlayerScript : MonoBehaviour
     public bool die = false;
     public bool onTheGround = false;
 
+    //Gameplay
+
+    public float jumpMultiplier = 1f;
+
     // Use this for initialization
     void Start()
     {
@@ -75,7 +79,7 @@ public class PlayerScript : MonoBehaviour
         this.speed = this.speed * (float) blk.speed;
 
         if(blk.jump) {
-            rb.AddForce(new Vector2(0, 100), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(0, 100 * jumpMultiplier), ForceMode2D.Impulse);
             col.GetComponent<Animator>().SetBool("Jump", true);
             molas.Add(col);
             wiEmitter.clip = wi[(int)Random.Range(0,wi.Length)];

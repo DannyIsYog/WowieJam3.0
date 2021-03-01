@@ -26,9 +26,8 @@ public class LevelManager : MonoBehaviour
 
     /*Ravina Stuff */
     public GameObject ravina;
-    public GameObject ravinaBlockSpawn;
-
-    public GameObject ravinaPlayerSpawn;
+    private GameObject ravinaBlockSpawn;
+    private GameObject ravinaPlayerSpawn;
 
     /* Prefabs */
     public GameObject PlayerPrefab; //Prefab used to spawn the player
@@ -42,6 +41,11 @@ public class LevelManager : MonoBehaviour
     public List<GameObject> button_list = new List<GameObject>();
 
     public Canvas canvas;
+
+    private GameObject pov;
+    public GameObject camera;
+
+    public float cameraSpeed = 1f;
 
     /*FIXME: REMOVE FROM PRODUCTION*/
     [InspectorButton("OnButtonClicked")]
@@ -61,7 +65,7 @@ public class LevelManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start(){
-
+        setRavina(ravina);
         loadNewLevel();
 
         dummy = new Block(Block.BlockType.Useless);
@@ -83,6 +87,20 @@ public class LevelManager : MonoBehaviour
             }
         }
         nextBlock = 0;
+        if(pov) {
+            //camera.transform.position = pov.transform.position;
+            //camera.transform.position = Vector3.Lerp(camera.transform.position, pov.transform.position, cameraSpeed * Time.deltaTime);
+            InvokeRepeating("moveCamera", 0.1f, 0.01f);
+        }
+    }
+
+    void moveCamera() {
+        camera.transform.position = Vector3.Lerp(camera.transform.position, pov.transform.position, cameraSpeed * Time.deltaTime);
+        cameraSpeed += 1;
+        if(cameraSpeed >= 100) {
+            CancelInvoke();
+            cameraSpeed = 10;
+        }
     }
 
     public void restartLevel() {
@@ -225,11 +243,12 @@ public class LevelManager : MonoBehaviour
 
     /* Ravina Functions */
     public void setRavina(GameObject obj) {
-        Debug.Log("new collision");
-        if(obj != ravina) {
-            ravina = obj;
-            ravinaBlockSpawn = obj.transform.Find("Platform").gameObject;
-            ravinaPlayerSpawn = obj.transform.Find("PlayerSpawn").gameObject;
+        bool skip = obj != ravina;
+        ravina = obj;
+        ravinaBlockSpawn = obj.transform.Find("Platform").gameObject;
+        ravinaPlayerSpawn = obj.transform.Find("PlayerSpawn").gameObject;
+        pov = obj.transform.Find("CameraTarget").gameObject;
+        if(skip) {
             level++;
             loadNewLevel();
             Transform plat = ravina.transform.Find("ChestPlatform");
@@ -238,7 +257,6 @@ public class LevelManager : MonoBehaviour
             }
             ravina.transform.Find("Chest").gameObject.SetActive(true);
         }
-        //todo: ao chegar a ravina passar de nivel
     }
 
     /* Player Functions */
@@ -249,7 +267,8 @@ public class LevelManager : MonoBehaviour
         }
 
         if(Player) Player.GetComponent<PlayerScript>().die = true;
-        Player = Instantiate(PlayerPrefab, ravinaPlayerSpawn.transform, false); 
+        Player = Instantiate(PlayerPrefab, ravinaPlayerSpawn.transform, false);
+        Player.GetComponent<PlayerScript>().jumpMultiplier = 1.2f;
         setInventory();
     }
 
