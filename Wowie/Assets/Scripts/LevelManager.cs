@@ -107,6 +107,7 @@ public class LevelManager : MonoBehaviour
     }
 
     public void restartLevel() {
+        Player.GetComponent<PlayerScript>().molas = new List<Collider2D>();
         removeBlock();
         loadNewLevel();
         setInventory();
@@ -191,7 +192,7 @@ public class LevelManager : MonoBehaviour
         tmp.flipX = blocks[index].xFlip;
         blockToSpawn.transform.position = new Vector3(ravinaBlockSpawn.transform.position.x + ravinaBlockSpawn.transform.localScale.x + nextBlock * 4.02f/*tmp.bounds.size.x/*4*/ + blockToSpawn.transform.localScale.x + 1, ravinaBlockSpawn.transform.position.y + ravinaBlockSpawn.transform.localScale.y - (tmp.bounds.size.y/2), 0f);
         
-        if(false)
+        /*if(false)
             if(!preview) {
                 Debug.LogWarning(blocks[index].blk.ToString() + " " + blocks[index].ori.ToString() + ":" + nextBlock.ToString() + " flip:" + tmp.flipX + "\npos: " + blockToSpawn.transform.position);
                 Debug.Log(ravinaBlockSpawn.transform.position.x);
@@ -202,7 +203,7 @@ public class LevelManager : MonoBehaviour
                 Debug.Log(ravinaBlockSpawn.transform.position.y);
                 Debug.Log(ravinaBlockSpawn.transform.localScale.y);
                 Debug.Log(tmp.bounds.size.y);
-            }
+            }*/
             
 
         if(blocks[index].jump) {
