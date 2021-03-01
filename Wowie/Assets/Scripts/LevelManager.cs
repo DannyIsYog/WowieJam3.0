@@ -149,6 +149,10 @@ public class LevelManager : MonoBehaviour
                 canvas.gameObject.SetActive(false);
                 VictoryCanvas.gameObject.SetActive(true);
                 break;
+            case 8:
+                TutorialText.text = "                              End of Tutorial";
+                VictoryCanvas.gameObject.SetActive(true);
+                break;
             default:
                 break;
         }

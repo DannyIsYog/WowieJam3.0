@@ -20,4 +20,11 @@ public class VictoryMenu : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("Tutorial");
     }
+
+    public void PlayAgain()
+    {
+        clickSound.Play();
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainLevel");
+    }
 }
