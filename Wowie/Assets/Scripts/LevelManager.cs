@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 //ONLY supports conditions for 1D placement
@@ -15,7 +16,8 @@ public class LevelManager : MonoBehaviour
     private int x;
     private int y=1;
     //end define level size
-
+    
+    public TextMeshProUGUI TutorialText;
     /* Block Stuff */
     private Block[,] matrix;
     private GameObject[,] matrixInstanced;
@@ -92,6 +94,7 @@ public class LevelManager : MonoBehaviour
             //camera.transform.position = Vector3.Lerp(camera.transform.position, pov.transform.position, cameraSpeed * Time.deltaTime);
             InvokeRepeating("moveCamera", 0.1f, 0.017f);
         }
+        changeTutorialText();
     }
 
     void moveCamera() {
@@ -124,6 +127,25 @@ public class LevelManager : MonoBehaviour
             matrix[i, 0] = null;
             Destroy(matrixInstanced[i, 0]);
             matrixInstanced[i, 0] = null;
+        }
+    }
+
+    public void changeTutorialText() {
+        switch(level) {
+            case 0:
+                TutorialText.text = "Select one block and press <space> to place it.\nThe objective is to reach the next mountain.";
+                break;
+            case 1:
+                TutorialText.text = "Blocks can have special effects on your player.\nYou can press <R> to restart the level.";
+                break;
+            case 2:
+                TutorialText.text = "\t\t\t  Magnets can only connect with 			            oposing poles.(<R> to restart)\n	                      Good Luck!";
+                break;
+            case 3:
+                TutorialText.text = "Tutorial 4";
+                break;
+            default:
+                break;
         }
     }
 
