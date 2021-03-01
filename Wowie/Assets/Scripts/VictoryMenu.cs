@@ -14,10 +14,10 @@ public class VictoryMenu : MonoBehaviour
         SceneManager.LoadScene("Main Menu");
     }
 
-    public void PlayAgain()
+    public void Restart()
     {
         clickSound.Play();
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainLevel");
+        SceneManager.LoadScene("Tutorial");
     }
 }
